@@ -1,0 +1,91 @@
+/*
+ * Empty Stylesheet file.
+ */
+
+.mainFxmlClass {
+    -fx-border-style: hidden;
+}
+#mainAnchPn{
+    -fx-border-style: hidden;
+}
+#bkgroundLayer{
+    -fx-background-color:white;
+    -fx-effect: dropshadow(three-pass-box, #cccccc, 4, 0, 0, 4);
+    -fx-border-style: hidden;
+}
+#vScPane{
+    -fx-hbar-policy: never;
+    -fx-background-color: white;
+    -fx-border-style: hidden;
+}
+#hScPane{
+    -fx-vbar-policy: never;
+    -fx-background-color: white;
+}
+.scroll-bar:horizontal{
+    -fx-background-color:white;
+    -fx-font-size: 5px;    
+} 
+.scroll-bar:vertical{
+    -fx-background-color:white;
+    -fx-font-size: 5px;
+}
+.increment-button, .decrement-button {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+.scroll-bar:horizontal .track,
+.scroll-bar:vertical .track{
+    -fx-background-color: white;
+    -fx-border-color: white;
+    -fx-background-radius: 0em;
+}
+.scroll-bar:horizontal .thumb,
+.scroll-bar:vertical .thumb {
+    -fx-background-color: #ffcc33;
+    -fx-background-radius: 5em;
+    -fx-width:0.1px;
+}
+
+#modelsBtn{
+    -fx-background-color:transparent;
+    -fx-border-color: #ffcc33;
+    -fx-border-radius:100%;
+    -fx-border-width:4px;
+}
+RadioButton{
+    -fx-text-fill:#efdab1;
+    -fx-font-size: 1.5em;
+}
+RadioButton:selected{
+    -fx-text-fill: #2D2D2D;
+}
+#headHBox{
+    -fx-border-style: hidden hidden solid;
+    -fx-border-color: #ffcc33;
+    -fx-border-width: 4px;
+}
+#btnImagesId{
+    -fx-background-color:transparent;
+    -fx-border-color:#ffcc33;
+    -fx-border-radius:5px;
+    -fx-border-style:dashed;
+    -fx-border-width:4px;
+}
+#savingbttn{
+    -fx-background-color:#ffcc33;
+    -fx-effect: dropshadow(three-pass-box, #cccccc, 4, 0, 0, 4);
+    -fx-background-radius: 5em;
+}
+#savingbttnProjInfo{
+    -fx-background-color:#ffcc33;
+    -fx-background-radius: 5em;
+}
+#headTxt{
+    -fx-font-size: 1.5em;
+}
+.combo-box-base {
+    -fx-background-color: -fx-shadow-highlight-color, -fx-outer-border, -fx-inner-border, white;
+    -fx-background-insets: 0 0 -1 0, 0, 1, 2;
+    -fx-background-radius: 3px, 3px, 2px, 1px;
+}

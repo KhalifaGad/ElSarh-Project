@@ -1,0 +1,148 @@
+/*
+ * Empty Stylesheet file.
+ */
+@font-face{
+    src:url("/fonts/Cocon.ttf");
+}
+
+.mainFxmlClass {
+
+}
+#smallRedBtn{
+    -fx-background-color:red;
+    -fx-border-radius:100%;
+    -fx-font-wight: bold ;
+}
+#deleteBtn{
+    -fx-background-color:red;
+    -fx-border-radius:5%;
+    -fx-font-wight: bold ;
+}
+#darkAncPn{
+    -fx-background-color:#2D2D2D;
+    -fx-border-radius:5px;
+    -fx-border-style: hidden;
+}
+#headHBox{
+    -fx-background-color:orange;
+    -fx-font-wight: bold ;
+    -fx-font-family: "Cocon? Next Arabic Light";
+    -fx-font-size:2em;
+}
+
+#childHeadTxt{
+    -fx-font-family: "Cocon? Next Arabic Light";
+    -fx-font-size: 1.7em;    
+    -fx-font-wight: bold;
+}
+#childeTxt{
+    -fx-font-size: 1.3em;
+}
+#headTxt{
+    -fx-font-family: "Cocon? Next Arabic Light";
+    -fx-font-size: 2em;
+    -fx-font-wight: bold;
+}
+#firstHeadHBox{
+  -fx-border-color:transparent;   
+  -fx-font-wight: bold ;
+  -fx-font-size: 2em;
+}
+#bkgroundLayer{
+    -fx-background-color:white;
+    -fx-effect: dropshadow(three-pass-box, #cccccc, 4, 0, 0, 4);
+    -fx-border-style: hidden;
+}
+#savingbttn{
+    -fx-background-color:#ffcc33;
+    -fx-effect: dropshadow(three-pass-box, #cccccc, 4, 0, 0, 4);
+    -fx-background-radius: 5em;
+}
+#vScPane{
+    -fx-hbar-policy: never;
+    -fx-background-color: white;
+}
+#hScPane{
+    -fx-vbar-policy: never;
+    -fx-background-color: white;
+}
+.scroll-bar:horizontal{
+    -fx-background-color:#2D2D2D;
+    -fx-font-size: 2px;    
+} 
+.scroll-bar:vertical{
+    -fx-background-color:white;
+    -fx-font-size: 5px;
+}
+.increment-button, .decrement-button {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+.scroll-bar:horizontal .track{
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+.scroll-bar:vertical .track{
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-background-radius: 0em;
+}
+.scroll-bar:horizontal .thumb,
+.scroll-bar:vertical .thumb {
+    -fx-background-color: #ffcc33;
+    -fx-background-radius: 5em;
+    -fx-width:0.1px;
+}
+.scroll-pane > .corner {
+    -fx-background-color: #ffcc33;
+    -fx-background-radius: 10em;
+}
+#saveImgsBtn{
+    -fx-background-color:transparent;
+    -fx-border-radius:100%;
+}
+#modelsBtn1{
+    -fx-background-color:transparent;
+    -fx-border-color: #ffcc33;
+    -fx-border-radius:100%;
+    -fx-border-width:4px;
+}
+btnId{
+    -fx-border-style: solid;
+    -fx-border-color:yellow;
+    -fx-border-radius:100%
+}
+#btnImagesId{
+    -fx-background-color:transparent;
+    -fx-border-color:#ffcc33;
+    -fx-border-radius:5px;
+    -fx-border-style:dashed;
+    -fx-border-width:4px;
+}
+#financeBtnVB{
+    -fx-background-color:#ffcc33;
+    -fx-border-radius:5px;
+}
+#darkAncPnTxt{
+    -fx-font-size:1.2em;
+    -fx-fill: white;
+}
+.mainFxmlClass {
+    -fx-border-style: hidden;
+}
+ToggleButton{
+    -fx-background-color: transparent;
+    -fx-border-style: hidden hidden solid;
+    -fx-border-color: #565656;
+    -fx-border-width: 2;
+    -fx-padding: 5px;
+    -fx-text-fill: #565656;
+}
+ToggleButton:selected{
+    -fx-background-color: transparent;
+    -fx-border-style: hidden hidden solid;
+    -fx-border-color: #ffcc33;
+    -fx-border-width: 2;
+    -fx-padding: 5px;
+    -fx-text-fill: #ffcc33;
+}

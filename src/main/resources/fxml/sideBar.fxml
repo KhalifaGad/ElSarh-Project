@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Text?>
+<?import javafx.stage.Screen?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+
+<AnchorPane fx:id="mainContainer" style="-fx-background-color:white;" stylesheets="/styles/Styles.css" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="${screen.visualBounds.height}" prefWidth="${screen.visualBounds.width}" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.khalifa.elsarh.controllers.SideBarController">
+    <fx:define>
+        <Screen fx:factory="getPrimary" fx:id="screen"/>
+    </fx:define>
+   <children>
+      <VBox fx:id="vBox" id="mainSideBarVB" prefHeight="${vBox.parent.height}" prefWidth="${mainContainer.width * 0.1999}" style="-fx-background-color: #2D2D2D;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <StackPane style="-fx-background-color: transparent; " onMouseClicked="#home" fx:id="textStck"  id="textStck" prefHeight="${mainContainer.height * 0.31}" prefWidth="${mainContainer.width * 0.1999}">
+                <children>
+                  <Circle fx:id="homeBtnCrcl" StackPane.alignment="CENTER" onMouseClicked="#home" radius="${mainContainer.width * 0.04}" />
+               </children>
+            </StackPane>
+            <Button id="vBox" mnemonicParsing="false" onMouseClicked="#projects" prefHeight="${vBox.height * 0.13}" prefWidth="${mainContainer.width * 0.1999}" text="الــمــــشــاريع" />
+            <Button id="vBox" mnemonicParsing="false" onMouseClicked="#clients" prefHeight="${vBox.height * 0.13}" prefWidth="${mainContainer.width * 0.1999}" text="الــــعــــمـــــــلاء" />
+            <Button id="vBox" mnemonicParsing="false" onMouseClicked="#reports" prefHeight="${vBox.height * 0.13}" prefWidth="${mainContainer.width * 0.1999}" text="الـــــتقاريـــــــر" />
+            <Button id="vBox" mnemonicParsing="false" onMouseClicked="#dailyPayment" prefHeight="${vBox.height * 0.13}" prefWidth="${mainContainer.width * 0.1999}" text="يــــــــومـــــــي" />
+            <Button id="vBox" mnemonicParsing="false" onMouseClicked="#webDealing" prefHeight="${vBox.height * 0.13}" prefWidth="${mainContainer.width * 0.1999}" text="الانتــــــرنــــــت" />
+            <Button id="vBox" mnemonicParsing="false" onMouseClicked="#settings" prefHeight="${vBox.height * 0.13}" prefWidth="${mainContainer.width * 0.1999}" text="اعــــــــــــدادات" />
+            <Button id="vBox" mnemonicParsing="false" onMouseClicked="#exit" prefHeight="${vBox.height * 0.13}" prefWidth="${mainContainer.width * 0.1999}" text="خـــــــــــروج" />
+            <StackPane fx:id="SP" alignment="BOTTOM_CENTER" prefHeight="${mainContainer.height * 0.32}" prefWidth="${mainContainer.width * 0.1999}">    
+                <ImageView>
+                     <Image url="images/building(1).png"/>
+                </ImageView>
+            </StackPane>
+         </children>
+      </VBox>
+      <HBox fx:id="hBox" id="mainAppHB" alignment="CENTER" prefHeight="${mainContainer.height * 0.07}" prefWidth="${mainContainer.width * 0.799}" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+          <children>
+            <Text fx:id="headTxt" strokeType="OUTSIDE" strokeWidth="0.0" text="نظام ادارة شركة الصرح">
+               <HBox.margin>
+                  <Insets top="10" />
+               </HBox.margin>
+            </Text>
+         </children>
+      </HBox>
+      <StackPane fx:id="mainAppStackPane" id="mainAppStackPane" alignment="CENTER" prefHeight="${mainContainer.height * 0.93}" prefWidth="${mainContainer.width * 0.799}" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <children>
+             <StackPane fx:id="homeStackPane">
+                 <children>
+                     <Circle fx:id="HomeCrcl" fill="yellow" radius="125.0" stroke="BLACK" strokeType="INSIDE" />
+                 </children>
+             </StackPane>
+         </children>
+      </StackPane>
+   </children>
+</AnchorPane>

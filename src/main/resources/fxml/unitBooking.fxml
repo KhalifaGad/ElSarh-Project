@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+
+
+<AnchorPane fx:id="unitBookingAnchorPane" id="AnchorPane" prefHeight="${unitBookingAnchorPane.parent.height}" prefWidth="${unitBookingAnchorPane.parent.width}" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.khalifa.elsarh.controllers.UnitBookingController" >
+    <stylesheets>
+        <URL value="@/styles/unitbooking.css"/>
+    </stylesheets>
+    <ScrollPane id="vScPane" AnchorPane.rightAnchor="0" prefHeight="${unitBookingAnchorPane.height}" prefWidth="${unitBookingAnchorPane.width}">
+        <content>
+            <AnchorPane  prefHeight="${unitBookingAnchorPane.height}" id="mainAnchPn" prefWidth="${unitBookingAnchorPane.width}">
+                <children>
+                    <AnchorPane fx:id="unitAncPn" id="bkgroundLayer" prefHeight="${unitBookingAnchorPane.height * 0.28}" prefWidth="${unitBookingAnchorPane.width * 0.75}" style="-fx-backround-color:white;">
+                        <children>
+                            <HBox fx:id="unitInfoHB" AnchorPane.rightAnchor="0" id="headHBox" AnchorPane.topAnchor="10" alignment="CENTER_RIGHT" prefWidth="${unitBookingAnchorPane.width * 0.16}" style="-fx-background-color: transparent;">
+                                <children>
+                                    <Text id="headTxt" text="بيـانات الـوحـده :  " />
+                                </children>
+                            </HBox>
+                            <HBox fx:id="projectNameHB" nodeOrientation="RIGHT_TO_LEFT" alignment="CENTER_RIGHT" prefWidth="${unitBookingAnchorPane.width * 0.26}" style="-fx-background-color: transparent;">
+                                <children>
+                                    <Text text="اســــم الـمــشــروع:  " />
+                                    <ComboBox fx:id="projectName" prefWidth="${unitBookingAnchorPane.width * 0.3}" onAction="#checkProjName" />
+                                </children>
+                            </HBox>
+                            <HBox fx:id="unitCodeHB" nodeOrientation="RIGHT_TO_LEFT" alignment="CENTER_RIGHT" prefWidth="${unitBookingAnchorPane.width * 0.22}" style="-fx-background-color: transparent;">
+                                <children>
+                                    <Text text="كــــود الـــوحـــده: " />
+                                    <ComboBox fx:id="unitCodeCB" prefWidth="${unitBookingAnchorPane.width * 0.26}" />
+                                </children>
+                            </HBox>
+                            <HBox fx:id="reserveUnitHB" nodeOrientation="RIGHT_TO_LEFT">
+                                <Text text="تــاريــخ حـجـــز : " />
+                                <HBox nodeOrientation="RIGHT_TO_LEFT" >
+                                    <TextField fx:id="reservingDayTxtFld" prefWidth="${unitBookingAnchorPane.width * 0.03}" promptText="dd" />
+                                    <TextField fx:id="reservingMonthTxtFld" prefWidth="${unitBookingAnchorPane.width * 0.04}" promptText="mm" />
+                                    <TextField fx:id="reservingYearTxtFld" prefWidth="${unitBookingAnchorPane.width * 0.06}" promptText="yy" />
+                                </HBox>
+                            </HBox>
+                        </children>
+                    </AnchorPane>
+                    <AnchorPane fx:id="clientInfoAncPn" id="bkgroundLayer" prefHeight="${unitBookingAnchorPane.height * 0.36}" prefWidth="${unitBookingAnchorPane.width * 0.75}" style="-fx-backround-color:white;">
+                        <children>
+                            <HBox fx:id="clientInfoHB" nodeOrientation="RIGHT_TO_LEFT" AnchorPane.rightAnchor="0" alignment="CENTER_LEFT" prefWidth="${unitBookingAnchorPane.width * 0.4}" style="-fx-background-color: transparent;">
+                                <children>
+                                    <HBox id="headHBox" alignment="CENTER_RIGHT" >
+                                        <children>
+                                            <Text id="headTxt" text="بيـانات الـعمـيـل :  " />
+                                        </children>
+                                    </HBox>
+                                    <HBox alignment="CENTER_RIGHT" >
+                                        <children>
+                                            <RadioButton fx:id="existedClientRB" onAction="#existedClient" text="عميـل مسبق" />
+                                        </children>
+                                    </HBox>
+                                </children>
+                            </HBox>
+                            <AnchorPane fx:id="newClientAnchPn" prefWidth="${unitBookingAnchorPane.width * 0.62}" >
+                                <children>
+                                    <HBox fx:id="firstLayerHB" nodeOrientation="RIGHT_TO_LEFT" alignment="CENTER_RIGHT" prefWidth="${unitBookingAnchorPane.width * 0.6}" >
+                                        <HBox nodeOrientation="RIGHT_TO_LEFT" alignment="CENTER_RIGHT" prefWidth="${unitBookingAnchorPane.width * 0.3}" >
+                                            <children>
+                                                <Text text="الاســــــــــــــــم:  " />
+                                                <TextField fx:id="clientName" />
+                                            </children>
+                                        </HBox>
+                                        <HBox nodeOrientation="RIGHT_TO_LEFT" alignment="CENTER_RIGHT" prefWidth="${unitBookingAnchorPane.width * 0.3}" >
+                                            <children>
+                                                <Text text="رقم تعريف الشخصيه:  " />
+                                                <TextField fx:id="clientPersonalId" />
+                                            </children>
+                                        </HBox>
+                                    </HBox>
+                                    <HBox fx:id="secondLayerHB" nodeOrientation="RIGHT_TO_LEFT" alignment="CENTER_RIGHT" prefWidth="${unitBookingAnchorPane.width * 0.6}" >
+                                        <HBox nodeOrientation="RIGHT_TO_LEFT" alignment="CENTER_RIGHT" prefWidth="${unitBookingAnchorPane.width * 0.3}" >
+                                            <children>
+                                                <Text text="رقـــــم الــهاتــف:  " />
+                                                <TextField fx:id="clientMobileNumber" promptText="الاول" />
+                                            </children>
+                                        </HBox>
+                                        <HBox nodeOrientation="RIGHT_TO_LEFT" alignment="CENTER_RIGHT" prefWidth="${unitBookingAnchorPane.width * 0.3}" >
+                                            <children>
+                                                <Text text="رقـــــم الــهاتــف:  " />
+                                                <TextField fx:id="clientMobileNumber1" promptText="الثانى" />
+                                            </children>
+                                        </HBox>
+                                    </HBox>
+                                    <HBox fx:id="thirdLayerHB" nodeOrientation="RIGHT_TO_LEFT" alignment="CENTER_RIGHT" prefWidth="${unitBookingAnchorPane.width * 0.6}" >
+                                        <HBox nodeOrientation="RIGHT_TO_LEFT" alignment="CENTER_RIGHT" prefWidth="${unitBookingAnchorPane.width * 0.3}" >
+                                            <children>
+                                                <Text text="الـــــمــهـــنـــــــه:  " />
+                                                <TextField fx:id="clientCareer" />
+                                            </children>
+                                        </HBox>
+                                        <HBox nodeOrientation="RIGHT_TO_LEFT" alignment="CENTER_RIGHT" prefWidth="${unitBookingAnchorPane.width * 0.3}" >
+                                            <children>
+                                                <Text text="البريد الالكترونى:  " />
+                                                <TextField fx:id="emailTxtFld" />
+                                            </children>
+                                        </HBox>
+                                    </HBox>
+                                    <HBox fx:id="fourthLayerHB" nodeOrientation="RIGHT_TO_LEFT" alignment="CENTER" prefWidth="${unitBookingAnchorPane.width * 0.6}" >
+                                        <Text text="عنوان المراسله: " />
+                                        <TextField fx:id="addressTxtFld" prefWidth="${unitBookingAnchorPane.width * 0.4}" />
+                                    </HBox>
+                                </children>
+                            </AnchorPane>
+                            <AnchorPane fx:id="existedClientInfoAncPn" id="bkgroundLayer" prefHeight="${unitBookingAnchorPane.height * 0.32}" prefWidth="${unitBookingAnchorPane.width * 0.75}" style="-fx-backround-color:white;" >
+                                <children>
+                                    <HBox fx:id="existedClientInputHB" alignment="CENTER_RIGHT" nodeOrientation="RIGHT_TO_LEFT" AnchorPane.topAnchor="0" >
+                                        <children>
+                                            <TextField fx:id="existedClientCode" promptText="كود العميل" />
+                                            <Button fx:id="showExistedBtn" id="savingbttn" onMouseClicked="#getOldeClientInfo" prefHeight="${unitBookingAnchorPane.height * 0.03}" prefWidth="${unitBookingAnchorPane.width * 0.1}">
+                                                <graphic>
+                                                    <Label style="-fx-font-size:1.2em;-fx-background-color:transparent;" text="عرض" /> 
+                                                </graphic>
+                                            </Button>
+                                        </children>
+                                    </HBox>
+                                    <HBox fx:id="existedClientDataHB" alignment="CENTER" nodeOrientation="RIGHT_TO_LEFT">
+                                        <Text fx:id="existedClientNameTxt"/>
+                                        <Text fx:id="existedClientPhoneTxt" />                                        
+                                    </HBox>
+                                </children>
+                            </AnchorPane>
+                        </children>
+                    </AnchorPane>
+                    <Button fx:id="savingBtn" id="savingbttn" onAction="#prepareBookingUnit" prefHeight="${unitBookingAnchorPane.height * 0.05}" prefWidth="${unitBookingAnchorPane.width * 0.1}">
+                        <graphic>
+                            <Label style="-fx-font-size:1.5em;-fx-background-color:transparent;" text="حـفـظ" /> 
+                        </graphic>
+                    </Button>
+                </children>
+            </AnchorPane>
+        </content>
+    </ScrollPane>
+</AnchorPane>

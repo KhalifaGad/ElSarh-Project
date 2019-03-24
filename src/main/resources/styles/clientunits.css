@@ -1,0 +1,153 @@
+/*
+ * Empty Stylesheet file.
+ */
+@font-face{
+    src:url("/fonts/Cocon.ttf");
+}
+.mainFxmlClass {
+    -fx-border-style: hidden;
+}
+ToggleButton{
+    -fx-background-color: transparent;
+    -fx-border-style: hidden hidden solid;
+    -fx-border-color: #565656;
+    -fx-border-width: 2;
+    -fx-padding: 5px;
+    -fx-text-fill: #565656;
+}
+ToggleButton:selected{
+    -fx-background-color: transparent;
+    -fx-border-style: hidden hidden solid;
+    -fx-border-color: #ffcc33;
+    -fx-border-width: 2;
+    -fx-padding: 5px;
+    -fx-text-fill: #ffcc33;
+}
+#darkBgTB{
+    -fx-background-color: #2D2D2D;
+    -fx-text-fill: white;
+    -fx-border-style: hidden hidden solid;
+    -fx-border-color: white;
+}
+TextField{
+    -fx-font-size:1em;
+}
+#darkBgTB:selected{
+    -fx-background-color: #2D2D2D;
+    -fx-text-fill: #ffcc33;
+    -fx-border-style: hidden hidden solid;
+    -fx-border-color: #ffcc33;
+}
+#financialDealingHB{
+    -fx-background-color: #ffcc33;
+}
+#darkBgAnchPn{
+    -fx-background-color: transparent;
+    -fx-border-style: hidden;
+}
+RadioButton{
+    -fx-text-fill: white;
+}
+#BlkRadioButton{
+    -fx-text-fill: black;
+}
+#BtnStyle{
+    -fx-background-color:#ffcc33;
+    -fx-background-radius: 5em;
+}
+label{
+    -fx-font-size:1.2em;
+    -fx-background-color:transparent;
+    -fx-text-fill: black;
+}
+#headHBox{
+    -fx-background-color:orange;
+}
+#headTxt{
+    -fx-font-family: "Cocon? Next Arabic Light";
+    -fx-font-size: 1.7em;
+    -fx-font-wight: bold;
+}
+#head2Txt{
+    -fx-font-size: 1.2em;
+    -fx-font-wight: bold;
+}
+#head2TxtYellow{
+    -fx-font-size: 1.2em;
+    -fx-font-wight: bold;
+    -fx-fill: #ffcc33;
+}
+#head2TxtRed{
+    -fx-font-size: 1.2em;
+    -fx-font-wight: bold;
+    -fx-fill: crimson;
+}
+#darkAncPn{
+    -fx-background-color:#2D2D2D;
+    -fx-background-radius: 1.3em;
+    -fx-border-radius:1em;
+    -fx-border-style: solid;
+    -fx-border-color: #ffcc33;
+    -fx-border-width: 0.5em;
+}
+#whiteWriting{
+    -fx-font-size:1.2em;
+    -fx-fill: white;
+    -fx-font-wight: bold;
+}
+#smallWhiteWriting{
+    -fx-font-size:1.05em;
+    -fx-fill: white;
+    -fx-font-wight: bold;
+}
+#yellowWriting{
+    -fx-font-size:1.2em;
+    -fx-fill:  #ffcc33;
+    -fx-font-wight: bold;
+}
+#smallYellowWriting{
+    -fx-font-size:1.05em;
+    -fx-fill:  #ffcc33;
+    -fx-font-wight: bold;
+}
+#vScPane{
+    -fx-hbar-policy: never;
+    -fx-background-color: white;
+}
+.scroll-bar:vertical{
+    -fx-background-color:white;
+    -fx-font-size: 5px;
+}
+.increment-button, .decrement-button {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+.scroll-bar:horizontal .track{
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+.scroll-bar:vertical .track{
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-background-radius: 0em;
+}
+.scroll-bar:horizontal .thumb,
+.scroll-bar:vertical .thumb {
+    -fx-background-color: #ffcc33;
+    -fx-background-radius: 5em;
+    -fx-width:0.1px;
+}
+.scroll-pane > .corner {
+    -fx-background-color: #ffcc33;
+    -fx-background-radius: 10em;
+}
+.combo-box-base {
+    -fx-background-color: -fx-shadow-highlight-color, -fx-outer-border, -fx-inner-border, white;
+    -fx-background-insets: 0 0 -1 0, 0, 1, 2;
+    -fx-background-radius: 3px, 3px, 2px, 1px;
+}
+#lightBtn{
+    -fx-text-fill: #264aff;
+    -fx-font-wight: bold; 
+    -fx-background-color:transparent;
+}

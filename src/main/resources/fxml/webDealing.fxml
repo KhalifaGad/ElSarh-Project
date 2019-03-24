@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane fx:id="webDealingMainPn" id="AnchorPane" prefHeight="${webDealingMainPn.parent.height}" prefWidth="${webDealingMainPn.parent.width}" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.khalifa.elsarh.controllers.WebDealingController">
+    <stylesheets>
+        <URL value="@/styles/webdealing.css"/>
+    </stylesheets>
+    <fx:define>
+        <ToggleGroup fx:id="optionsTG"/>
+    </fx:define>
+    <HBox nodeOrientation="RIGHT_TO_LEFT" alignment="CENTER_RIGHT" AnchorPane.topAnchor="0.0" >
+        <ToggleButton fx:id="showUnitsTB" prefWidth="${webDealingMainPn.width * 0.5}" text="عـــــرض" toggleGroup="${optionsTG}" />
+        <ToggleButton fx:id="uploadUnitTB" prefWidth="${webDealingMainPn.width * 0.5}" text="اضـافــه" toggleGroup="${optionsTG}" />
+    </HBox> 
+    <AnchorPane fx:id="uploadUnitPn" id="uplaodUnitAncPn" prefWidth="${webDealingMainPn.width * 0.9}" prefHeight="${webDealingMainPn.height * 0.8}"   >
+        <HBox fx:id="firstHB"  prefWidth="${uploadUnitPn.width}" nodeOrientation="RIGHT_TO_LEFT" alignment="CENTER" AnchorPane.topAnchor="0.0" >
+            <TextField fx:id="unitNameTxtFld" prefWidth="${webDealingMainPn.width * 0.15}" promptText="الاسم" />
+            <TextField fx:id="unitTypeTxtFld" prefWidth="${webDealingMainPn.width * 0.15}" promptText="النوع" />
+            <ComboBox fx:id="roomsCountCB" prefWidth="${webDealingMainPn.width * 0.15}" promptText="عدد الغرف" />
+        </HBox>
+        <HBox fx:id="secondHB"  prefWidth="${uploadUnitPn.width}" nodeOrientation="RIGHT_TO_LEFT" alignment="CENTER" AnchorPane.topAnchor="0.0" >
+            <TextField fx:id="villageTxtFld" prefWidth="${webDealingMainPn.width * 0.15}" promptText="الشياخه" />
+            <TextField fx:id="statusTxtFld" prefWidth="${webDealingMainPn.width * 0.15}" promptText="الحاله" />
+            <TextField fx:id="deliveryTxtFld" prefWidth="${webDealingMainPn.width * 0.15}" promptText="تاريخ تسليم" />
+        </HBox>
+        <HBox fx:id="thirdHB"  prefWidth="${uploadUnitPn.width}" nodeOrientation="RIGHT_TO_LEFT" alignment="CENTER" AnchorPane.topAnchor="0.0" >
+            <TextField fx:id="areaTxtFld" prefWidth="${webDealingMainPn.width * 0.15}" promptText="المساحه" />
+            <TextField fx:id="areaLandTxtFld" prefWidth="${webDealingMainPn.width * 0.15}" promptText="المساحه فى الارض" />
+        </HBox>
+        <HBox fx:id="fourthHB"  prefWidth="${uploadUnitPn.width}" nodeOrientation="RIGHT_TO_LEFT" alignment="CENTER" AnchorPane.topAnchor="0.0" >
+            <TextField fx:id="priceTxtFld" prefWidth="${webDealingMainPn.width * 0.15}" promptText="السعر" />
+            <RadioButton fx:id="installmentStatusRB" text="منتهى الاقساط" />
+        </HBox>
+        <HBox fx:id="fifthHB"  prefWidth="${uploadUnitPn.width}" nodeOrientation="RIGHT_TO_LEFT" alignment="CENTER" AnchorPane.topAnchor="0.0" >
+            <Button fx:id="btn1" prefWidth="${webDealingMainPn.width * 0.15}" onMouseClicked="#uploadImg1" id="yellowBtn" text="صوره 1 " />
+            <Button fx:id="btn2" id="yellowBtn" text="صوره 2 " onMouseClicked="#uploadImg2" prefWidth="${webDealingMainPn.width * 0.15}" />
+            <Button fx:id="btn3" id="yellowBtn" text="صوره 3 " onMouseClicked="#uploadImg3" prefWidth="${webDealingMainPn.width * 0.15}" />
+        </HBox>
+        <HBox fx:id="sixthHB"  prefWidth="${uploadUnitPn.width}" nodeOrientation="RIGHT_TO_LEFT" alignment="CENTER" AnchorPane.topAnchor="0.0" >
+            <Button fx:id="btn4" id="yellowBtn" text="صوره 4 " onMouseClicked="#uploadImg4" prefWidth="${webDealingMainPn.width * 0.15}" />
+            <Button fx:id="btn5" id="yellowBtn" text="صوره 5 " onMouseClicked="#uploadImg5" prefWidth="${webDealingMainPn.width * 0.15}" />
+            <Button fx:id="btn6" id="yellowBtn" text="صوره 6 " onMouseClicked="#uploadImg6" prefWidth="${webDealingMainPn.width * 0.15}" />
+        </HBox>
+        <HBox fx:id="seventhHB" prefWidth="${uploadUnitPn.width}" nodeOrientation="RIGHT_TO_LEFT" alignment="CENTER" AnchorPane.topAnchor="0.0" >
+            <Button id="yellowBtn" text="اضافه" onMouseClicked="#uploadUnit" prefWidth="${webDealingMainPn.width * 0.15}" />
+        </HBox>
+    </AnchorPane>
+    <ScrollPane fx:id="showUnitsScPn" >
+        
+    </ScrollPane>
+</AnchorPane>

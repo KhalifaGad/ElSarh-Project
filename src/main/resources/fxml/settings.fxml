@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="settingsPane" id="AnchorPane" prefHeight="${settingsPane.parent.height}" prefWidth="${settingsPane.parent.width}" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.khalifa.elsarh.controllers.SettingsController">
+    <stylesheets>
+        <URL value="@/styles/settings.css"/>
+    </stylesheets>
+    <fx:define>
+        <ToggleGroup fx:id="installmentsTypeToggleGroup"/>
+    </fx:define>
+    <children>
+        <AnchorPane fx:id="addInstallmentsType" id="bkgroundLayer" prefHeight="${settingsPane.height * 0.5}" prefWidth="${settingsPane.width * 0.8}" >
+            <children>
+                <HBox fx:id="installmentHead" AnchorPane.rightAnchor="0" id="headHBox" >
+                    <Text id="headTxt" text="اضافة نوعية قسط: " />
+                </HBox>
+                <HBox fx:id="addInstallmentsTypeHB"  prefWidth="${settingsPane.width * 0.8}" alignment="BOTTOM_CENTER" nodeOrientation="RIGHT_TO_LEFT" >
+                    <TextField fx:id="installmentName" promptText="الاسم" />
+                    <RadioButton fx:id="essentialPaymentRB" text="مستحقات اساسيه" toggleGroup="${installmentsTypeToggleGroup}" />
+                    <RadioButton fx:id="additionalPaymentRB" text="مستحقات اضفايه" toggleGroup="${installmentsTypeToggleGroup}" />
+                    <RadioButton fx:id="facilitiesPaymentRB" text="مرافق" toggleGroup="${installmentsTypeToggleGroup}" />
+                    <RadioButton fx:id="maintenancePaymentRB" text="صيانه" toggleGroup="${installmentsTypeToggleGroup}" />
+                    <RadioButton fx:id="adjustmentPaymentRB" text="تعديلات" toggleGroup="${installmentsTypeToggleGroup}" />
+                </HBox>
+                <HBox fx:id="savingHB" prefWidth="${settingsPane.width * 0.8}" alignment="CENTER">
+                    <Button fx:id="savingBtn" id="savingbttn" onMouseClicked="#addInstallmentType" prefHeight="${settingsPane.height * 0.05}" prefWidth="${settingsPane.width * 0.1}">
+                        <graphic>
+                            <Label style="-fx-font-size:1.1em;-fx-background-color:transparent; -fx-text-fill: black;" text="اضافه" /> 
+                        </graphic>
+                    </Button>
+                </HBox>
+            </children>
+        </AnchorPane>
+    </children>
+</AnchorPane>

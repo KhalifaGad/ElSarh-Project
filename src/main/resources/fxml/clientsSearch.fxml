@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.URL?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.ScrollPane?>
+
+
+<AnchorPane fx:id="searchingClientsAnchorPane" prefHeight="${searchingClientsAnchorPane.parent.height}" prefWidth="${searchingClientsAnchorPane.parent.width}" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.khalifa.elsarh.controllers.ClientsSearchController">
+    <stylesheets>
+        <URL value="@/styles/clientssearch.css" />
+    </stylesheets>
+    <fx:define>
+        <ToggleGroup fx:id="projectsSearchingParam" />  
+    </fx:define>
+   <children>
+      <HBox fx:id="clientsSearchingHBox" alignment="CENTER_RIGHT" nodeOrientation="LEFT_TO_RIGHT" prefWidth="${searchingClientsAnchorPane.parent.width}" style="-fx-background-color: #3D3D3D;" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <TextField fx:id="clientSearchingByPhone" alignment="CENTER" prefWidth="${searchingClientsAnchorPane.width * 0.3}" promptText="ادخل رقم الهاتف" />
+            <TextField fx:id="clientSearchingByName" alignment="CENTER" prefWidth="${searchingClientsAnchorPane.width * 0.3}" promptText="ادخل اسم العميل" />
+            <TextField fx:id="clientSearchingByID" alignment="CENTER" prefWidth="${searchingClientsAnchorPane.width * 0.3}" promptText="ادخل كود العميل" />
+            <ImageView fitHeight="${searchingClientsAnchorPane.height * 0.07}" fitWidth="${searchingClientsAnchorPane.width * 0.15}" onMouseClicked="#search" pickOnBounds="true" preserveRatio="true">
+                <Image url="images/search.png" />
+            </ImageView>
+         </children>
+      </HBox>
+      <HBox fx:id="toggleBtnsHB" prefHeight="${searchingClientsAnchorPane.height * 0.02}" prefWidth="${searchingClientsAnchorPane.width}" AnchorPane.rightAnchor="0.0">
+         <children>
+            <ToggleButton nodeOrientation="RIGHT_TO_LEFT" fx:id="idBtn" mnemonicParsing="false"  onMouseClicked="#searchingById" prefWidth="${searchingClientsAnchorPane.width * 0.3333}" text="كود العميل" toggleGroup="${projectsSearchingParam}" />
+            <ToggleButton nodeOrientation="RIGHT_TO_LEFT" fx:id="phoneBtn" mnemonicParsing="false" onMouseClicked="#searchingByPhone" prefWidth="${searchingClientsAnchorPane.width * 0.3333}" text="الهاتف" toggleGroup="${projectsSearchingParam}" />
+            <ToggleButton nodeOrientation="RIGHT_TO_LEFT" fx:id="nameBtn" mnemonicParsing="false" onMouseClicked="#searchingByName" prefWidth="${searchingClientsAnchorPane.width * 0.3333}" text="الاسم" toggleGroup="${projectsSearchingParam}" />
+         </children>
+      </HBox>
+      <ScrollPane fx:id="clientsSearchingScPn" id="vScPane" prefHeight="${searchingClientsAnchorPane.height * 0.8}" prefWidth="${searchingClientsAnchorPane.width}">
+          <content>
+              <AnchorPane fx:id="searchingRsAncPn" nodeOrientation="RIGHT_TO_LEFT" prefHeight="${searchingClientsAnchorPane.height * 0.8}" prefWidth="${searchingClientsAnchorPane.width}">
+                  
+              </AnchorPane>
+          </content>
+      </ScrollPane>
+   </children>
+</AnchorPane>
+

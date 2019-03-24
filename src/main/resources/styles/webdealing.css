@@ -1,0 +1,36 @@
+/*
+ * Empty Stylesheet file.
+ */
+
+.mainFxmlClass {
+
+}
+ToggleButton{
+    -fx-background-color: transparent;
+    -fx-border-style: hidden hidden solid;
+    -fx-border-color: #565656;
+    -fx-border-width: 2;
+    -fx-padding: 5px;
+    -fx-text-fill: #565656;
+}
+ToggleButton:selected{
+    -fx-background-color: transparent;
+    -fx-border-style: hidden hidden solid;
+    -fx-border-color: #ffcc33;
+    -fx-border-width: 2;
+    -fx-padding: 5px;
+    -fx-text-fill: #ffcc33;
+}
+#yellowBtn{
+   -fx-background-color: #ffcc33; 
+}
+#uplaodUnitAncPn{
+    -fx-background-color: white;
+    -fx-effect: dropshadow(three-pass-box, #cccccc, 4, 0, 0, 4);
+    -fx-background-radius: 5em;
+}
+.combo-box-base {
+    -fx-background-color: -fx-shadow-highlight-color, -fx-outer-border, -fx-inner-border, white;
+    -fx-background-insets: 0 0 -1 0, 0, 1, 2;
+    -fx-background-radius: 3px, 3px, 2px, 1px;
+}

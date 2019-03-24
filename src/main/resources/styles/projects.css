@@ -1,0 +1,11 @@
+/*
+ * Empty Stylesheet file.
+ */
+
+.mainFxmlClass {
+    -fx-border-style: hidden;
+}
+.button{
+    -fx-background-color:white;
+    -fx-effect: dropshadow(three-pass-box, #cccccc, 4, 0, 0, 4);
+}

@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+
+
+<AnchorPane id="AnchorPane" fx:id="ProjectProfileAncPn" prefHeight="${ProjectProfileAncPn.parent.height}" prefWidth="${ProjectProfileAncPn.parent.width}" styleClass="mainFxmlClass"  xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.khalifa.elsarh.controllers.ProjectProfileController">
+    <stylesheets>
+        <URL value="@/styles/projectprofile.css"/>
+    </stylesheets>
+    <fx:define>
+        <ToggleGroup fx:id="commerialsDealingToggleGroup"/>
+    </fx:define>
+    <children>
+        <ScrollPane id="vScPane" AnchorPane.rightAnchor="0"  fx:id="ProjProfileScPn" prefHeight="${ProjectProfileAncPn.height}" prefWidth="${ProjectProfileAncPn.width}">
+            <content>
+                <AnchorPane prefHeight="${ProjectProfileAncPn.height}" prefWidth="${ProjectProfileAncPn.width}">
+                    <children>                        
+                        <AnchorPane id="bkgroundLayer" fx:id="profilContainer" prefHeight="${ProjectProfileAncPn.height * 0.8}" prefWidth="${ProjectProfileAncPn.width * 0.85}">
+                            <HBox fx:id="projectNameHBox" nodeOrientation="RIGHT_TO_LEFT" id="headHbox" alignment="CENTER" AnchorPane.rightAnchor="0.0">
+                                <children>
+                                </children>
+                            </HBox>
+                            <VBox fx:id="locationVBox" id="childrenNode" nodeOrientation="RIGHT_TO_LEFT" alignment="CENTER_LEFT" spacing="5" >
+                                <children>
+                                    <Text fx:id="streetTxt" id="childText" />
+                                    <Text fx:id="areaTxt" id="childText" />
+                                    <Text fx:id="countryTxt" id="childText" />
+                                </children>
+                            </VBox>
+                            <HBox fx:id="floorsHBox" id="childrenNode" alignment="CENTER_RIGHT" >
+                                <children>
+                                    <Text fx:id="floorsNoTxt" id="childText" />
+                                </children>
+                            </HBox>
+                            <HBox fx:id="modelsHBox" id="childrenNode" nodeOrientation="RIGHT_TO_LEFT" alignment="CENTER_RIGHT" spacing="15.0" >
+                                <children>
+                                </children>
+                            </HBox>
+                            <ScrollPane id="vScPane" fx:id="modelsDetailsScrlPn" nodeOrientation="RIGHT_TO_LEFT" prefHeight="${ProjectProfileAncPn.height * 0.09}" prefWidth="${ProjectProfileAncPn.width * 0.45}">
+                                <content>
+                                    <AnchorPane prefHeight="${ProjectProfileAncPn.height * 0.09}" prefWidth="${ProjectProfileAncPn.width * 0.45}">
+                                        <children>
+                                            <AnchorPane  fx:id="modelsDetails_anchPn" nodeOrientation="LEFT_TO_RIGHT" style="-fx-background-color:white;" prefHeight="${ProjectProfileAncPn.height * 0.09}" prefWidth="${ProjectProfileAncPn.width * 0.45}">
+                                            </AnchorPane>
+                                        </children>
+                                    </AnchorPane>
+                                </content>
+                            </ScrollPane>
+                            <HBox fx:id="additionalsHBox" id="childrenNode" nodeOrientation="RIGHT_TO_LEFT" alignment="CENTER_RIGHT" spacing="15.0" >
+                                <children>
+                                    <Text fx:id="commercialsNumTxt" id="childText" />
+                                    <Button onMouseClicked="#showCommercials" text="↓" id="smallYellowBtn" prefHeight="${ProjectProfileAncPn.height * 0.02}" prefWidth="${ProjectProfileAncPn.width * 0.02}" />
+                                </children>
+                            </HBox>
+                            <ScrollPane id="vScPane" fx:id="additionalsDetailsScrlPn" nodeOrientation="RIGHT_TO_LEFT" prefHeight="${ProjectProfileAncPn.height * 0.12}" prefWidth="${ProjectProfileAncPn.width * 0.32}">
+                                <content>
+                                    <AnchorPane prefHeight="${ProjectProfileAncPn.height * 0.12}" prefWidth="${ProjectProfileAncPn.width * 0.32}">
+                                        <children>
+                                            <AnchorPane fx:id="additionalsDetails_anchPn" nodeOrientation="LEFT_TO_RIGHT" style="-fx-background-color:white;" prefHeight="${ProjectProfileAncPn.height * 0.13}" prefWidth="${ProjectProfileAncPn.width * 0.32}">
+                                            </AnchorPane>
+                                        </children>
+                                    </AnchorPane>
+                                </content>
+                            </ScrollPane>
+                            <HBox fx:id="unitsHBox" nodeOrientation="RIGHT_TO_LEFT" id="childrenNode" alignment="CENTER_RIGHT" spacing="15.0"  >
+                                <children>
+                                    <Text fx:id="unitsNumTxt" id="childText" />
+                                    <Button onMouseClicked="#showUnits" text="↓" id="smallYellowBtn" prefHeight="${ProjectProfileAncPn.height * 0.02}" prefWidth="${ProjectProfileAncPn.width * 0.02}" />
+                                </children>
+                            </HBox> 
+                            <ScrollPane id="vScPane" fx:id="unitsDetailsScrlPn" nodeOrientation="RIGHT_TO_LEFT" prefHeight="${ProjectProfileAncPn.height * 0.16}" prefWidth="${ProjectProfileAncPn.width * 0.45}">
+                                <content>
+                                    <AnchorPane prefHeight="${ProjectProfileAncPn.height * 0.16}" prefWidth="${ProjectProfileAncPn.width * 0.45}">
+                                        <children>
+                                            <AnchorPane  fx:id="unitsDetails_anchPn" nodeOrientation="LEFT_TO_RIGHT" style="-fx-background-color:white;" prefHeight="${ProjectProfileAncPn.height * 0.16}" prefWidth="${ProjectProfileAncPn.width * 0.45}">
+                                            </AnchorPane>
+                                        </children>
+                                    </AnchorPane>
+                                </content>
+                            </ScrollPane>
+                            <Button fx:id="editUnitsPriceBtn" id="childrenNode" alignment="CENTER" onMouseClicked="#showUnitsRepricingArea" style="-fx-background-color:#ffcc33;" prefWidth="${ProjectProfileAncPn.width * 0.2}" >
+                                <graphic>
+                                    <Text text="تعديل اسعار وحدات  ◄" id="childText" />
+                                </graphic>
+                            </Button>
+                            <Button fx:id="commerialsDealingBtn" alignment="CENTER" id="childrenNode" onMouseClicked="#showCommerialsDealingPane" style="-fx-background-color:#ffcc33;" prefWidth="${ProjectProfileAncPn.width * 0.2}" >
+                                <graphic>
+                                    <Text text="تجــــارى ◄ " id="childText" />
+                                </graphic>
+                            </Button>
+                            <Button fx:id="deleteModelBtn" alignment="CENTER" id="childrenNode" onMouseClicked="#showModelDeletionPane" style="-fx-background-color:#ffcc33;" prefWidth="${ProjectProfileAncPn.width * 0.2}" >
+                                <graphic>
+                                    <Text text="مسح       ◄" id="childText" />
+                                </graphic>
+                            </Button>
+                            <Button fx:id="addModelBtn" alignment="CENTER" id="childrenNode" onMouseClicked="#showModelAddingPane" style="-fx-background-color:#ffcc33;" prefWidth="${ProjectProfileAncPn.width * 0.2}" >
+                                <graphic>
+                                    <Text text="اضافة نموذج ◄" id="childText" />
+                                </graphic>
+                            </Button>
+                            <AnchorPane fx:id="editUnitsHeadAncPn" style="-fx-background-color:#2D2D2D;" prefHeight="${ProjectProfileAncPn.height * 0.26}" prefWidth="${ProjectProfileAncPn.width * 0.62}">
+                                <children>
+                                    <HBox fx:id="repricingParamsHB" prefWidth="${ProjectProfileAncPn.width * 0.62}" alignment="CENTER" nodeOrientation="RIGHT_TO_LEFT" >
+                                        <TextField fx:id="repricedUnitsCountTxtFld" prefWidth="${ProjectProfileAncPn.width * 0.08}" promptText="العدد" />
+                                        <Button onMouseClicked="#SummonSpecialUnit" id="specialUnitSummoningBtn" prefWidth="${ProjectProfileAncPn.width * 0.08}" text="عرض" />
+                                    </HBox>
+                                    <ScrollPane id="vScPane" fx:id="editUnitsScrlPn" nodeOrientation="RIGHT_TO_LEFT" prefHeight="${ProjectProfileAncPn.height * 0.25}" prefWidth="${ProjectProfileAncPn.width * 0.62}">
+                                        <content>
+                                            <AnchorPane fx:id="editUnitsAncPn" style="-fx-background-color:#2D2D2D;" prefHeight="${ProjectProfileAncPn.height * 0.26}" prefWidth="${ProjectProfileAncPn.width * 0.62}" > 
+                                                <children>
+                                                    
+                                                </children>
+                                            </AnchorPane>
+                                        </content>
+                                    </ScrollPane>
+                                </children>
+                            </AnchorPane>
+                            <AnchorPane fx:id="commerialsDealingAncPn" style="-fx-background-color:#2D2D2D;" prefHeight="${ProjectProfileAncPn.height * 0.26}" prefWidth="${ProjectProfileAncPn.width * 0.62}">
+                                <children>
+                                    <HBox nodeOrientation="RIGHT_TO_LEFT" AnchorPane.topAnchor="0.0" AnchorPane.rightAnchor="0.0" >
+                                        <ToggleButton fx:id="editCommerialsTB" id="darkBgTB" prefWidth="${ProjectProfileAncPn.width * 0.31}" text="تعديل" toggleGroup="${commerialsDealingToggleGroup}" />
+                                        <ToggleButton fx:id="addCommerialsTB" id="darkBgTB" prefWidth="${ProjectProfileAncPn.width * 0.31}" text="اضافه" toggleGroup="${commerialsDealingToggleGroup}" />
+                                    </HBox>
+                                    <AnchorPane fx:id="editCommerialUnitPane" prefHeight="${ProjectProfileAncPn.height * 0.2}" prefWidth="${ProjectProfileAncPn.width * 0.62}" >
+                                        <children>
+                                            <HBox fx:id="editCommUnit1HB" prefWidth="${ProjectProfileAncPn.width * 0.57}" alignment="CENTER" nodeOrientation="RIGHT_TO_LEFT" AnchorPane.topAnchor="0.0" >
+                                                <TextField fx:id="editCommUnitCode" promptText="كود الوحده" />
+                                                <TextField fx:id="editCommUnitName" promptText="الاسم" />
+                                            </HBox>
+                                            <HBox fx:id="editCommUnit2HB" prefWidth="${ProjectProfileAncPn.width * 0.57}" alignment="CENTER" nodeOrientation="RIGHT_TO_LEFT" >
+                                                <TextField fx:id="editCommUnitArea" promptText="المساحه" />
+                                                <TextField fx:id="editCommUnitPrice" promptText="السعر" />
+                                            </HBox>
+                                            <HBox fx:id="saveEditingHB"  prefWidth="${ProjectProfileAncPn.width * 0.57}" alignment="CENTER" >
+                                                <Button onMouseClicked="#editCommUnitData" prefWidth="${ProjectProfileAncPn.width * 0.1}" style="-fx-background-color:#ffcc33;" >
+                                                    <graphic>
+                                                        <Label style="-fx-font-size:1em;-fx-text-fill:#2D2D2D;" text="حـــفـــظ" /> 
+                                                    </graphic>
+                                                </Button>
+                                            </HBox>
+                                        </children>
+                                    </AnchorPane>
+                                    <AnchorPane fx:id="addCommerialPane" prefHeight="${ProjectProfileAncPn.height * 0.2}" prefWidth="${ProjectProfileAncPn.width * 0.62}"  >
+                                        <children>
+                                            <HBox fx:id="addCommUnit1HB" prefWidth="${ProjectProfileAncPn.width * 0.57}"  alignment="CENTER" nodeOrientation="RIGHT_TO_LEFT" AnchorPane.topAnchor="0.0" >
+                                                <TextField fx:id="addCommUnitName" promptText="الاسم" />
+                                                <TextField fx:id="addCommUnitArea" promptText="المساحه" />
+                                            </HBox>
+                                            <HBox fx:id="addCommUnit2HB" prefWidth="${ProjectProfileAncPn.width * 0.57}" alignment="CENTER" nodeOrientation="RIGHT_TO_LEFT" >
+                                                <TextField fx:id="addCommUnitPrice" promptText="السعر" />
+                                            </HBox>
+                                            <HBox fx:id="saveNewCommUnitHB"  prefWidth="${ProjectProfileAncPn.width * 0.57}" alignment="CENTER" >
+                                                <Button onMouseClicked="#addCommUnit" prefWidth="${ProjectProfileAncPn.width * 0.1}" style="-fx-background-color:#ffcc33;" >
+                                                    <graphic>
+                                                        <Label style="-fx-font-size:1em;-fx-text-fill:#2D2D2D;" text="حـــفـــظ" /> 
+                                                    </graphic>
+                                                </Button>
+                                            </HBox>
+                                        </children>
+                                    </AnchorPane>
+                                </children>
+                            </AnchorPane>
+                            <AnchorPane fx:id="modelDeletionAncPn" style="-fx-background-color:#2D2D2D;" prefHeight="${ProjectProfileAncPn.height * 0.26}" prefWidth="${ProjectProfileAncPn.width * 0.62}" >
+                                <children>
+                                    <HBox fx:id="modelDeletionHB" prefWidth="${ProjectProfileAncPn.width * 0.57}" alignment="CENTER" nodeOrientation="RIGHT_TO_LEFT" >
+                                        <TextField fx:id="modelDeletionTxtFld" alignment="CENTER" promptText="اسم النموذج" />
+                                        <TextField fx:id="modelDeletionFromTxtFld" prefWidth="${ProjectProfileAncPn.width * 0.05}" alignment="CENTER" promptText="من" />
+                                        <TextField fx:id="modelDeletionToTxtFld" prefWidth="${ProjectProfileAncPn.width * 0.05}" alignment="CENTER" promptText="الى" />
+                                        <Button prefWidth="${ProjectProfileAncPn.width * 0.1}" onMouseClicked="#deleteModel" style="-fx-background-color:#ffcc33;" text="مسح" />
+                                    </HBox>
+                                    <HBox fx:id="commDeletionHB" prefWidth="${ProjectProfileAncPn.width * 0.57}" alignment="CENTER" nodeOrientation="RIGHT_TO_LEFT" >
+                                        <Text id="smallYellowWriting" text="مسح وحده تجاريه " />
+                                        <TextField fx:id="commDeletionTxtFld" alignment="CENTER" promptText="كود الوحده" />
+                                        <Button prefWidth="${ProjectProfileAncPn.width * 0.1}" onMouseClicked="#deleteCommerialUnit" style="-fx-background-color:#ffcc33;" text="مسح" />
+                                    </HBox>
+                                </children>
+                            </AnchorPane>
+                            <AnchorPane fx:id="modelAddingAncPn" style="-fx-background-color:#2D2D2D;" prefHeight="${ProjectProfileAncPn.height * 0.26}" prefWidth="${ProjectProfileAncPn.width * 0.62}" >
+                                <children>
+                                    <HBox fx:id="addModelHB" prefWidth="${ProjectProfileAncPn.width * 0.57}" alignment="CENTER" nodeOrientation="RIGHT_TO_LEFT" >
+                                        <TextField fx:id="addModelNameTxtFld" prefWidth="${ProjectProfileAncPn.width * 0.13}" alignment="CENTER" promptText="اسم النموذج" />
+                                        <TextField fx:id="addModelAreaTxtFld" prefWidth="${ProjectProfileAncPn.width * 0.08}" alignment="CENTER" promptText="المساحه" />
+                                        <TextField fx:id="addModelPriceTxtFld" prefWidth="${ProjectProfileAncPn.width * 0.1}" alignment="CENTER" promptText="السعر" />
+                                        <TextField fx:id="addModelFromTxtFld" prefWidth="${ProjectProfileAncPn.width * 0.06}" alignment="CENTER" promptText="من" />
+                                        <TextField fx:id="addModelToTxtFld" prefWidth="${ProjectProfileAncPn.width * 0.06}" alignment="CENTER" promptText="الى" />
+                                    </HBox>
+                                    <HBox fx:id="saveModelHB" prefWidth="${ProjectProfileAncPn.width * 0.57}" alignment="CENTER" nodeOrientation="RIGHT_TO_LEFT" >
+                                        <Button prefWidth="${ProjectProfileAncPn.width * 0.1}" onMouseClicked="#addModel" style="-fx-background-color:#ffcc33;" text="حفظ" />
+                                    </HBox>
+                                </children>
+                            </AnchorPane>
+                            <HBox fx:id="projImgsHB" id="headHBox" alignment="CENTER_RIGHT" style="-fx-background-color: transparent;">
+                                <children>
+                                    <Text id="headTxt" style="" text="صـــــور المشـــــروع:" />
+                                </children>
+                            </HBox>
+                            <ScrollPane fx:id="projectImages_ScPn" id="hScPane" prefHeight="${ProjectProfileAncPn.height * 0.57}" prefWidth="${ProjectProfileAncPn.width * 0.68}">
+                                <content>
+                                    <AnchorPane fx:id="projectImagesAnchPane" prefHeight="${ProjectProfileAncPn.height * 0.57}" prefWidth="${ProjectProfileAncPn.width * 0.68}">
+                                        
+                                    </AnchorPane>
+                                </content>
+                            </ScrollPane>
+                            <Button fx:id="imgAddBtn1" id="modelsBtn1" onMouseClicked="#addProjImage" prefHeight="${ProjectProfileAncPn.height * 0.05}" prefWidth="${ProjectProfileAncPn.width * 0.05}" >
+                                <graphic>
+                                    <Label style="-fx-font-size:2em;-fx-text-fill: #ffcc33" text="+" /> 
+                                </graphic>
+                            </Button>
+                            <Button fx:id="saveImgsBtn" id="saveImgsBtn" onMouseClicked="#saveImages" prefHeight="${ProjectProfileAncPn.height * 0.06}" prefWidth="${ProjectProfileAncPn.width * 0.06}">
+                                <graphic>
+                                    <ImageView fx:id="imgSavingIV" fitHeight="${ProjectProfileAncPn.height * 0.07}" fitWidth="${ProjectProfileAncPn.width * 0.07}" preserveRatio="true" >
+                                    </ImageView>
+                                </graphic>
+                            </Button>
+                        </AnchorPane>
+                    </children>
+                </AnchorPane>
+            </content>
+        </ScrollPane>
+    </children>
+</AnchorPane>

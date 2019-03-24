@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" fx:id="reportsAnchPn" prefHeight="${reportsAnchPn.parent.height}" prefWidth="${reportsAnchPn.parent.width}" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.khalifa.elsarh.controllers.ReportsController">
+    <stylesheets>
+        <URL value="@/styles/reports.css"/>
+    </stylesheets>
+    <fx:define>
+        <ToggleGroup fx:id="reportesFiltering" />  
+    </fx:define>
+    <children>
+        <HBox fx:id="mainToggleBtnsHB" prefHeight="${reportsAnchPn.height * 0.02}" prefWidth="${reportsAnchPn.width}" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" >
+         <children>
+            <ToggleButton nodeOrientation="RIGHT_TO_LEFT" fx:id="financeTBtn" mnemonicParsing="false" onMouseClicked="#financeReports" prefWidth="${reportsAnchPn.width * 0.25}" text="مـالـيـه" toggleGroup="${reportesFiltering}" />
+            <ToggleButton nodeOrientation="RIGHT_TO_LEFT" fx:id="clientsTBtn" mnemonicParsing="false" onMouseClicked="#clientsReports" prefWidth="${reportsAnchPn.width * 0.25}" text="عـمـلاء" toggleGroup="${reportesFiltering}" />
+            <ToggleButton nodeOrientation="RIGHT_TO_LEFT" fx:id="unitsTBtn" mnemonicParsing="false"  onMouseClicked="#unitsReports" prefWidth="${reportsAnchPn.width * 0.25}" text="وحــدات" toggleGroup="${reportesFiltering}" />
+            <ToggleButton nodeOrientation="RIGHT_TO_LEFT" fx:id="projectsTBtn" mnemonicParsing="false"  onMouseClicked="#projectsReports" prefWidth="${reportsAnchPn.width * 0.25}" text="مـشـاريـع" toggleGroup="${reportesFiltering}" />
+         </children>
+      </HBox>
+      <HBox fx:id="projectNameHB" id="darkReportsFilteringParamHB" nodeOrientation="RIGHT_TO_LEFT" spacing="${reportsAnchPn.width * 0.02}" alignment="CENTER" prefHeight="${reportsAnchPn.height * 0.02}" prefWidth="${reportsAnchPn.width * 0.8}" >
+          <children>
+             <Text text="اسـم الـمـشـروع : " style="-fx-font-size:1.2em; -fx-fill: white;" />
+             <ComboBox fx:id="projectNameCB" prefWidth="${reportsAnchPn.width * 0.1}" onAction="#projectInfo" />
+          </children>
+      </HBox>
+      <HBox fx:id="clientsFilterHB" id="darkReportsFilteringParamHB" nodeOrientation="RIGHT_TO_LEFT" spacing="${reportsAnchPn.width * 0.02}" alignment="CENTER" prefHeight="${reportsAnchPn.height * 0.02}" prefWidth="${reportsAnchPn.width * 0.8}" >
+          <children>
+             <TextField fx:id="clientIdTxtFld" promptText="كود العميل" prefWidth="${reportsAnchPn.width * 0.12}" onAction="#clientInfoById" />
+          </children>
+      </HBox>
+      <AnchorPane fx:id="reportscontainerAncPn" prefWidth="${reportsAnchPn.width}" prefHeight="${reportsAnchPn.height * 0.02}"> 
+          
+      </AnchorPane>
+    </children>
+</AnchorPane>

@@ -1,0 +1,32 @@
+
+@font-face{
+    src:url("/fonts/Cocon.ttf");
+}
+@font-face{
+    src:url("/fonts/VIPHalaBold.ttf");
+}
+/*-fx-font-family: "Cocon? Next Arabic Light" #ff7900;*/
+#vBox{
+    -fx-background-color: transparent;
+    -fx-text-fill: #fDfDfDfD;
+    -fx-font-family: "VIP Hala Bold VIP Hala Bold";
+    -fx-font-size: 150%;
+}
+#mainAppHB{
+    -fx-background-color: #2D2D2D;
+    -fx-text-fill: white;
+    -fx-font-family: "Cocon? Next Arabic Light";
+    -fx-font-size:2em;
+    -fx-font-wight: bold ;
+
+}
+#mainSideBarVB{
+    -fx-background-color: #2D2D2D;
+}
+#mainAppStackPane{
+    -fx-background-color:#eee;
+}
+
+.mainFxmlClass {
+    -fx-border-style: none;
+}

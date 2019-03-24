@@ -1,0 +1,81 @@
+/*
+ * Empty Stylesheet file.
+ */
+
+.mainFxmlClass {
+    -fx-border-style: hidden;
+}
+#firstHeadHBox{
+  -fx-border-color:transparent;   
+}
+#bkgroundLayer{
+    -fx-background-color:white;
+    -fx-effect: dropshadow(three-pass-box, #cccccc, 4, 0, 0, 4);
+    -fx-border-style: hidden;
+}
+#savingbttn{
+    -fx-background-color:#ffcc33;
+    -fx-effect: dropshadow(three-pass-box, #cccccc, 4, 0, 0, 4);
+    -fx-background-radius: 5em;
+}
+#headTxt{
+    -fx-font-size: 2em;
+}
+#vScPane{
+    -fx-hbar-policy: never;
+    -fx-background-color: white;
+}
+#hScPane{
+    -fx-vbar-policy: never;
+    -fx-background-color: white;
+}
+.scroll-bar:horizontal{
+    -fx-background-color:white;
+    -fx-font-size: 5px;    
+} 
+.scroll-bar:vertical{
+    -fx-background-color:white;
+    -fx-font-size: 5px;
+}
+.increment-button, .decrement-button {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+.scroll-bar:horizontal .track,
+.scroll-bar:vertical .track{
+    -fx-background-color: white;
+    -fx-border-color: white;
+    -fx-background-radius: 5px;
+    -fx-font-size: 5px;
+    
+}
+.scroll-bar:horizontal .thumb,
+.scroll-bar:vertical .thumb {
+    -fx-background-color: #ffcc33;
+    -fx-background-radius: 0.1em;
+    
+}
+#modelsBtn{
+    -fx-background-color:transparent;
+    -fx-border-color: #ffcc33;
+    -fx-border-radius:100%;
+    -fx-border-width:4px;
+}
+#headHBox{
+    -fx-border-style: hidden hidden solid;
+    -fx-border-color: #ffcc33;
+    -fx-border-width: 4px;
+    -fx-padding: 3px;
+}
+btnId{
+    -fx-border-style: solid;
+    -fx-border-color:yellow;
+    -fx-border-radius:100%
+}
+#btnImagesId{
+    -fx-background-color:transparent;
+    -fx-border-color:#ffcc33;
+    -fx-border-radius:5px;
+    -fx-border-style:dashed;
+    -fx-border-width:4px;
+}

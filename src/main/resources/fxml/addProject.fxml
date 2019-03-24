@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+
+<AnchorPane fx:id="addProjAnchorPane" id="SSAnchorPane" style="-fx-backround-color:red;" prefHeight="${addProjAnchorPane.parent.height}" prefWidth="${addProjAnchorPane.parent.width}" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.141" fx:controller="com.khalifa.elsarh.controllers.AddProjectController">
+    <stylesheets>
+        <URL value="@/styles/addproject.css"/>
+    </stylesheets>
+   <children>
+       <ScrollPane id="vScPane" AnchorPane.rightAnchor="0"  fx:id="addProjScrollPane" prefHeight="${addProjAnchorPane.height}" prefWidth="${addProjAnchorPane.width}">
+        <content>
+            <AnchorPane  prefHeight="${addProjAnchorPane.height}" prefWidth="${addProjAnchorPane.width}">
+               <children>
+                <AnchorPane fx:id="primaryInfoAnchPn" id="bkgroundLayer" prefHeight="${addProjAnchorPane.height * 0.28}" prefWidth="${addProjAnchorPane.width * 0.75}" style="-fx-backround-color:white;">
+                    <children>
+                        <HBox fx:id="primaryInfoHB" AnchorPane.rightAnchor="0" id="headHBox" alignment="CENTER_RIGHT" prefWidth="${addProjAnchorPane.width * 0.2}" style="-fx-background-color: transparent;">
+                            <children>
+                                <Text id="headTxt" text="البيانات الاساسيه :  " />
+                            </children>
+                        </HBox>
+                        <HBox fx:id="projectNameHB" nodeOrientation="RIGHT_TO_LEFT" alignment="CENTER_RIGHT" prefWidth="${addProjAnchorPane.width * 0.26}" style="-fx-background-color: transparent;">
+                        <children>
+                            <Text text="اســـم الـمــشــروع:  " />
+                            <TextField fx:id="projectName" prefHeight="${addProjAnchorPane.height * 0.01}" prefWidth="${addProjAnchorPane.width * 0.16}" />
+                        </children>
+                        </HBox>
+                        <HBox fx:id="floorsNumberHB"  nodeOrientation="RIGHT_TO_LEFT" alignment="CENTER_RIGHT" prefWidth="${addProjAnchorPane.width * 0.2}" style="-fx-background-color: transparent;" >
+                            <children>
+                                <Text text="عـدد الادوار:  " />
+                                <TextField fx:id="floorsNumber" prefWidth="${addProjAnchorPane.width * 0.16}" />
+                            </children>
+                        </HBox>
+                        <HBox fx:id="locationHB" spacing="8" nodeOrientation="RIGHT_TO_LEFT" alignment="CENTER_RIGHT" prefWidth="${addProjAnchorPane.width * 0.6}" style="-fx-background-color: transparent;">
+                            <children>
+                                <Text text="الـــمــــــــــوقــــع:" />
+                                <TextField fx:id="locationSt" alignment="CENTER" promptText="الشارع" prefWidth="${addProjAnchorPane.width * 0.2}" />
+                                <TextField fx:id="locationArea" alignment="CENTER" promptText="المنطقه" prefWidth="${addProjAnchorPane.width * 0.2}" />
+                                <TextField fx:id="locationCountry" alignment="CENTER" promptText="البلد" prefWidth="${addProjAnchorPane.width * 0.2}" />
+                            </children>
+                          </HBox>
+                    </children>
+                </AnchorPane>
+                
+                <AnchorPane fx:id="modelsAnchorPane" id="bkgroundLayer"  prefHeight="${addProjAnchorPane.height * 0.3}" prefWidth="${addProjAnchorPane.width * 0.75}" style="-fx-backround-color:white;">
+                    <children>
+                        <HBox AnchorPane.rightAnchor="0" id="headHBox" AnchorPane.topAnchor="10"  alignment="CENTER_RIGHT" prefWidth="${addProjAnchorPane.width * 0.17}" style="-fx-background-color: transparent;">
+                            <children>
+                                <Text id="headTxt" text="بيـانات النـمـاذج :   " />
+                            </children>
+                        </HBox>
+                        <ScrollPane id="vScPane" fx:id="modelsScrollPane"  prefHeight="${addProjAnchorPane.height * 0.1}" prefWidth="${modelsAnchorPane.width}" >
+                            <content>
+                                <AnchorPane fx:id="addmodel_anchPn" id="test" prefHeight="${modelsScrollPane.height}" style="-fx-background-color:white;" prefWidth="${modelsScrollPane.width}" >
+                                    <HBox fx:id="modelNameHB" AnchorPane.topAnchor="0" nodeOrientation="RIGHT_TO_LEFT" alignment="CENTER_RIGHT" prefWidth="${addProjAnchorPane.width * 0.167}" style="-fx-background-color: transparent;">
+                                        <children>
+                                            <Text text="الاســـــــم: " />
+                                            <TextField fx:id="modelName0" />
+                                        </children>
+                                    </HBox>
+                                    <HBox fx:id="modelAreaHB" nodeOrientation="RIGHT_TO_LEFT" alignment="CENTER_RIGHT"  prefWidth="${addProjAnchorPane.width * 0.167}" style="-fx-background-color: transparent;" >
+                                        <children>
+                                            <Text text="الـمـساحــه : " />
+                                            <TextField fx:id="modelArea0" />
+                                        </children>
+                                    </HBox>
+                                    <HBox fx:id="modelPriceHB" nodeOrientation="RIGHT_TO_LEFT" alignment="CENTER_RIGHT" prefWidth="${addProjAnchorPane.width * 0.167}" style="-fx-background-color: transparent;" >
+                                        <children>
+                                            <Text text="الــســعـــر : " />
+                                            <TextField fx:id="modelPrice0" />
+                                        </children>
+                                    </HBox>
+                                </AnchorPane>
+                            </content>
+                        </ScrollPane>
+                        <Button fx:id="addModelInfoBtn" id="modelsBtn" onMouseClicked="#addModel" prefHeight="${addProjAnchorPane.height * 0.05}" prefWidth="${addProjAnchorPane.width * 0.05}">
+                            <graphic>
+                               <Label style="-fx-font-size:2em;-fx-text-fill: yellow;" text="+" /> 
+                            </graphic>
+                        </Button>
+                    </children>
+                </AnchorPane>
+                
+                <AnchorPane fx:id="additionalsAnchorPane" id="bkgroundLayer" prefHeight="${addProjAnchorPane.height * 0.3}" prefWidth="${addProjAnchorPane.width * 0.75}" style="-fx-backround-color:white;">
+                    <children>
+                        <HBox AnchorPane.rightAnchor="0" id="headHBox" AnchorPane.topAnchor="10"  alignment="CENTER_RIGHT" prefWidth="${addProjAnchorPane.width * 0.1}" style="-fx-background-color: transparent;">
+                            <children>
+                                <Text id="headTxt" text="الـــتجـارى:   " />
+                            </children> 
+                        </HBox>
+                        <ScrollPane id="vScPane" fx:id="additionalsScrollPane"  prefHeight="${addProjAnchorPane.height * 0.1}" prefWidth="${modelsAnchorPane.width}" >
+                            <content>
+                                <AnchorPane fx:id="additionalsAnchPn" prefHeight="${additionalsScrollPane.height}" style="-fx-background-color:white;" prefWidth="${additionalsScrollPane.width}" >
+                                    
+                                </AnchorPane>
+                            </content>
+                        </ScrollPane>
+                        <Button fx:id="addAdditionalsBtn" id="modelsBtn" onMouseClicked="#addAddition" prefHeight="${addProjAnchorPane.height * 0.05}" prefWidth="${addProjAnchorPane.width * 0.05}">
+                            <graphic>
+                               <Label style="-fx-font-size:1.5em;-fx-text-fill: yellow;" text="+" /> 
+                            </graphic>
+                        </Button>
+                    </children>
+                </AnchorPane>
+                
+                <AnchorPane fx:id="modelsImages_pane" id="bkgroundLayer" prefHeight="${addProjAnchorPane.height * 0.68}" prefWidth="${addProjAnchorPane.width * 0.75}" style="-fx-backround-color:white;">
+                    <children>
+                        <HBox fx:id="modelsImgheadHB" id="headHBox" AnchorPane.rightAnchor="0" alignment="CENTER_RIGHT"  prefWidth="${addProjAnchorPane.width * 0.2}" style="-fx-background-color: transparent;">
+                            <children>
+                                <Text id="headTxt" text="صـــور المــشــروع :   " />
+                            </children>
+                        </HBox>
+                        <ScrollPane fx:id="modelsImages_ScPane" id="hScPane" prefHeight="${addProjAnchorPane.height * 0.48}" prefWidth="${modelsImages_pane.width}">
+                            <content>
+                                <AnchorPane fx:id="modelsImages_AnchPane" prefHeight="${addProjAnchorPane.height * 0.48}" prefWidth="${modelsImages_pane.width}" style="-fx-background-color: white;">
+                                    <Button fx:id="imgBtn1" id="btnImagesId" onMouseClicked="#uploadModelImage" prefHeight="${addProjAnchorPane.height * 0.435}" prefWidth="${addProjAnchorPane.width * 0.2}">
+                                        <graphic>
+                                            <VBox alignment="CENTER">
+                                                <ImageView>
+                                                    <Image url="images/photo(1).png"/>
+                                                </ImageView>     
+                                               <Label style="-fx-font-size:2.2em;" text="ارفع صوره" /> 
+                                            </VBox>
+                                        </graphic>
+                                    </Button>
+                                    <Button fx:id="imgBtn2" id="btnImagesId" AnchorPane.rightAnchor="260.0" AnchorPane.topAnchor="10" onMouseClicked="#uploadModelImage" prefHeight="${addProjAnchorPane.height * 0.435}" prefWidth="${addProjAnchorPane.width * 0.2}" >
+                                        <graphic>
+                                            <VBox alignment="CENTER">
+                                                <ImageView>
+                                                    <Image url="images/photo(1).png"/>
+                                                </ImageView>     
+                                               <Label style="-fx-font-size:2em;" text="ارفع صوره" /> 
+                                            </VBox>
+                                        </graphic>
+                                    </Button>
+                                    <Button fx:id="imgBtn3" id="btnImagesId" AnchorPane.rightAnchor="500.0" AnchorPane.topAnchor="10" onMouseClicked="#uploadModelImage" prefHeight="${addProjAnchorPane.height * 0.435}" prefWidth="${addProjAnchorPane.width * 0.2}" >
+                                        <graphic>
+                                            <VBox alignment="CENTER">
+                                                <ImageView>
+                                                    <Image url="images/photo(1).png"/>
+                                                </ImageView>     
+                                               <Label style="-fx-font-size:2em;" text="ارفع صوره" /> 
+                                            </VBox>
+                                        </graphic>
+                                    </Button>
+                                </AnchorPane>
+                            </content>
+                        </ScrollPane>
+                        <Button fx:id="addModelImgBtn" id="modelsBtn" onMouseClicked="#addModelImage" prefHeight="${addProjAnchorPane.height * 0.05}" prefWidth="${addProjAnchorPane.width * 0.05}">
+                            <graphic>
+                               <Label style="-fx-font-size:1.5em;-fx-text-fill: yellow;" text="+" /> 
+                            </graphic>
+                        </Button>
+                    </children>
+                </AnchorPane>
+                <Button fx:id="savingBtn" id="savingbttn" onMouseClicked="#saveProjData" prefHeight="${addProjAnchorPane.height * 0.05}" prefWidth="${addProjAnchorPane.width * 0.1}">
+                    <graphic>
+                       <Label style="-fx-font-size:1.5em;-fx-background-color:transparent; -fx-text-fill: black;" text="حـفـظ" /> 
+                    </graphic>    
+                </Button>
+               </children>
+            </AnchorPane>
+         </content>
+       </ScrollPane>
+   </children>
+</AnchorPane>

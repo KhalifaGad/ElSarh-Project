@@ -1,0 +1,114 @@
+/*
+ * Empty Stylesheet file.
+ */
+
+.mainFxmlClass {
+
+}
+
+#smallRedBtn{
+    -fx-background-color:red;
+    -fx-border-radius:100%;
+    -fx-font-wight: bold ;
+}
+#smallYellowBtn{
+    -fx-background-color:#ffcc33;
+    -fx-border-radius:100%;
+    -fx-font-wight: bold ;
+}
+#smallYellowWriting{
+    -fx-font-size:1.05em;
+    -fx-fill:  #ffcc33;
+    -fx-font-wight: bold;
+}
+#headHBox{
+    -fx-background-color:orange;
+    -fx-font-size: 2em;
+}
+#headTxt{
+    -fx-font-size: 2em;
+}
+#childText{
+    -fx-font-size: 1.4em;
+}
+#bkgroundLayer{
+    -fx-background-color:white;
+    -fx-effect: dropshadow(three-pass-box, #cccccc, 4, 0, 0, 4);
+    -fx-border-style: hidden;
+}
+#vScPane{
+    -fx-hbar-policy: as-needed;
+    -fx-background-color: white;
+}
+#hScPane{
+    -fx-vbar-policy: never;
+    -fx-background-color: #ffcc33;
+}
+.scroll-bar:horizontal{
+    -fx-background-color:white;
+    -fx-font-size: 5px;    
+} 
+.scroll-bar:vertical{
+    -fx-background-color:white;
+    -fx-font-size: 5px;
+}
+.increment-button, .decrement-button {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+.scroll-bar:horizontal .track,
+.scroll-bar:vertical .track{
+    -fx-background-color: white;
+    -fx-border-color: white;
+    -fx-background-radius: 0em;
+}
+.scroll-bar:horizontal .thumb,
+.scroll-bar:vertical .thumb {
+    -fx-background-color: #ffcc33;
+    -fx-background-radius: 5em;
+    -fx-width:0.1px;
+}
+.scroll-pane > .corner {
+    -fx-background-color: transparent;
+    -fx-background-radius: 10em;
+}
+#btnImagesId{
+    -fx-background-color:transparent;
+    -fx-border-color:#ffcc33;
+    -fx-border-radius:5px;
+    -fx-border-style:dashed;
+    -fx-border-width:4px;
+}
+#specialUnitSummoningBtn{
+    -fx-background-color:#ffcc33;
+    -fx-border-radius:15%;
+}
+#darkBkTxt{
+    -fx-font-size:1.2em;
+    -fx-fill: white;
+}
+.mainFxmlClass {
+    -fx-border-style: hidden;
+}
+#darkBgTB{
+    -fx-background-color: #2D2D2D;
+    -fx-text-fill: white;
+    -fx-border-style: hidden hidden solid;
+    -fx-border-color: white;
+}
+#darkBgTB:selected{
+    -fx-background-color: #2D2D2D;
+    -fx-text-fill: #ffcc33;
+    -fx-border-style: hidden hidden solid;
+    -fx-border-color: #ffcc33;
+}
+#saveImgsBtn{
+    -fx-background-color:transparent;
+    -fx-border-radius:100%;
+}
+#modelsBtn1{
+    -fx-background-color:transparent;
+    -fx-border-color: #ffcc33;
+    -fx-border-radius:100%;
+    -fx-border-width:4px;
+}

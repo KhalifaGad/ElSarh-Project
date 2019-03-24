@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ScrollPane?>
+
+<AnchorPane id="AnchorPane" fx:id="searchingProjectsAnchorPane" prefHeight="${searchingProjectsAnchorPane.parent.height}" prefWidth="${searchingProjectsAnchorPane.parent.width}" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.khalifa.elsarh.controllers.ProjectsSearchingController">
+    <stylesheets>
+        <URL value="@/styles/projectssearching.css" />
+    </stylesheets>
+   <children>
+      <HBox fx:id="projectsSearchingHBox" alignment="CENTER_RIGHT" nodeOrientation="LEFT_TO_RIGHT" prefWidth="${searchingProjectsAnchorPane.parent.width}" style="-fx-background-color: #3D3D3D;" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <TextField fx:id="searchingPrjCountryTxtField" alignment="CENTER" prefWidth="${searchingProjectsAnchorPane.width * 0.15}" promptText="البلد" />
+            <TextField fx:id="searchingPrjAreaTxtField" alignment="CENTER"  prefWidth="${searchingProjectsAnchorPane.width * 0.15}" promptText="المنطقه" />
+            <TextField fx:id="searchingPrjNameTxtField" alignment="CENTER" prefWidth="${searchingProjectsAnchorPane.width * 0.25}" promptText="اسم المبنى" />
+            <Button style="-fx-background-color: transparent;" onMouseClicked="#search">
+                <graphic>
+                    <ImageView fitHeight="${searchingProjectsAnchorPane.height * 0.07}" fitWidth="${searchingProjectsAnchorPane.width * 0.15}" pickOnBounds="true" preserveRatio="true">
+                        <Image url="images/search.png" />
+                    </ImageView>
+                </graphic>
+            </Button>
+         </children>
+      </HBox>
+      <HBox fx:id="searchingOptionsHB" prefHeight="${searchingProjectsAnchorPane.height * 0.025}" prefWidth="${searchingProjectsAnchorPane.width}" AnchorPane.rightAnchor="0.0">
+         <children>
+            <RadioButton nodeOrientation="RIGHT_TO_LEFT" fx:id="locationBtn" mnemonicParsing="false" onMouseClicked="#checkingLocationBtn" prefWidth="${searchingProjectsAnchorPane.width * 0.5}" text="الموقع"/>
+            <RadioButton nodeOrientation="RIGHT_TO_LEFT" fx:id="nameBtn" mnemonicParsing="false" onMouseClicked="#checkingNameBtn" prefWidth="${searchingProjectsAnchorPane.width * 0.5}" text="الاسم"/>
+         </children>
+      </HBox>
+      <ScrollPane fx:id="searchingRsScrlPn" id="vScPane" prefHeight="${searchingProjectsAnchorPane.height * 0.8}" prefWidth="${searchingProjectsAnchorPane.width}">
+          <content>
+              <AnchorPane fx:id="searchingRsAncPn" prefHeight="${searchingProjectsAnchorPane.height * 0.8}" prefWidth="${searchingProjectsAnchorPane.width}">
+                  
+              </AnchorPane>
+          </content>
+      </ScrollPane>
+   </children>
+</AnchorPane>

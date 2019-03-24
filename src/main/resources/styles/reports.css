@@ -1,0 +1,53 @@
+/*
+ * Empty Stylesheet file.
+ */
+
+.mainFxmlClass {
+-fx-border-style: hidden;
+}
+#reportsFilteringParamHB{
+    -fx-background-color:white;
+    -fx-effect: dropshadow(three-pass-box, #cccccc, 4, 0, 0, 4);
+    -fx-background-radius: 5em;
+    -fx-padding: 10px;
+}
+#darkReportsFilteringParamHB{
+    -fx-background-color:#565656;
+    -fx-effect: dropshadow(three-pass-box, #cccccc, 4, 0, 0, 4);
+    -fx-background-radius: 5em;
+    -fx-padding: 10px;
+}
+ToggleButton{
+    -fx-background-color: transparent;
+    -fx-border-style: hidden hidden solid;
+    -fx-border-color: #565656;
+    -fx-border-width: 2;
+    -fx-padding: 5px;
+    -fx-text-fill: #565656;
+}
+ToggleButton:selected{
+    -fx-background-color: transparent;
+    -fx-border-style: hidden hidden solid;
+    -fx-border-color: #ffcc33;
+    -fx-border-width: 2;
+    -fx-padding: 5px;
+    -fx-text-fill: #ffcc33;
+}
+#yellowBtn{
+    -fx-background-color: #ffcc33;
+    -fx-background-radius: 5em;
+}
+#darkBtn{
+    -fx-text-fill: white;
+    -fx-background-radius: 5em;
+    -fx-background-color: #565656;
+}
+
+.mainFxmlClass {
+    -fx-border-style: hidden;
+}
+.combo-box-base {
+    -fx-background-color: -fx-shadow-highlight-color, -fx-outer-border, -fx-inner-border, white;
+    -fx-background-insets: 0 0 -1 0, 0, 1, 2;
+    -fx-background-radius: 3px, 3px, 2px, 1px;
+}

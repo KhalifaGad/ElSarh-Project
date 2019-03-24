@@ -1,0 +1,539 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.control.TextField?>
+
+<AnchorPane  fx:id="clientUnitsAnchPn" id="AnchorPane" prefHeight="${screen.visualBounds.height}" prefWidth="${screen.visualBounds.width}" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.khalifa.elsarh.controllers.ClientUnitsController">
+    <stylesheets>
+        <URL value="@/styles/clientunits.css"/>
+    </stylesheets>
+    <fx:define>
+        <ToggleGroup fx:id="clientUnitsToggleGroup"/>
+        <ToggleGroup fx:id="generalDealingToggleGroup"/>
+        <ToggleGroup fx:id="editingToggleGroup"/>
+        <ToggleGroup fx:id="editingInstallmentToggleGroup"/>
+        <ToggleGroup fx:id="editingInstallmentsToggleGroup"/>
+        <ToggleGroup fx:id="showingToggleGroup"/>
+        <ToggleGroup fx:id="financialDealingToggleGroup"/>
+        <ToggleGroup fx:id="restorationToggleGroup"/>
+    </fx:define>
+    <HBox fx:id="unitsHB" prefHeight="${clientUnitsAnchPn.height * 0.02}" prefWidth="${clientUnitsAnchPn.width}" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <children>
+            
+        </children>
+    </HBox>
+    <HBox fx:id="buildingNameHBox" nodeOrientation="RIGHT_TO_LEFT" id="headHbox" style="-fx-background-color:#ffcc33;" alignment="CENTER" AnchorPane.rightAnchor="0.0">
+        <children>
+            
+        </children>
+    </HBox>
+    <VBox fx:id="unitDetailsVBox" nodeOrientation="LEFT_TO_RIGHT" id="childrenNode" alignment="CENTER_RIGHT" spacing="10" >
+        <children>
+            <Text fx:id="buildingLocationTxt" id="head2Txt" />
+            <HBox fx:id="firstHead2HB" nodeOrientation="RIGHT_TO_LEFT" >
+                <Text fx:id="unitTypeTxt" id="head2Txt" />
+                <Text fx:id="contractDateTxt" id="head2TxtYellow" />
+                <Text fx:id="handingOverDateTxt" id="head2TxtYellow" />
+                <Text fx:id="restorationDateTxt" id="head2TxtRed" />
+            </HBox>
+            <HBox fx:id="secondHead2HB" nodeOrientation="RIGHT_TO_LEFT" >
+                <Text fx:id="unitModelTxt" id="head2Txt" />
+                <Text fx:id="ModelAreaTxt" id="head2Txt" />    
+            </HBox>
+            <Text fx:id="unitFloorTxt" id="head2Txt" />
+            <Text fx:id="unitCodeTxt" id="head2Txt" />
+        </children>
+    </VBox>
+    <HBox fx:id="financialHBox" nodeOrientation="RIGHT_TO_LEFT" id="headHbox" style="-fx-background-color:#ffcc33;" alignment="CENTER" AnchorPane.rightAnchor="0.0">
+        <children>
+            <Text id="headTxt" text="المــاليــات"/>
+        </children>
+    </HBox>
+    <HBox fx:id="generalDealingHBox" nodeOrientation="RIGHT_TO_LEFT" alignment="CENTER" >
+        <children>
+            <ToggleButton fx:id="showingTB" onMouseClicked="#showingOptions" prefWidth="${clientUnitsAnchPn.width * 0.4}" text="عرض " toggleGroup="${generalDealingToggleGroup}" />
+            <ToggleButton fx:id="showEditingTabsTB" onMouseClicked="#showEditingTabs" prefWidth="${clientUnitsAnchPn.width * 0.4}" text="مـعـملات" toggleGroup="${generalDealingToggleGroup}" />
+        </children>
+    </HBox>
+    <HBox fx:id="editingHBox"  nodeOrientation="RIGHT_TO_LEFT" alignment="CENTER" >
+        <children>
+            <ToggleButton fx:id="financialDealingTB" onMouseClicked="#financialDealing" prefWidth="${clientUnitsAnchPn.width * 0.25}" text="مـاليــه" toggleGroup="${editingToggleGroup}" />
+            <ToggleButton fx:id="unitDealingTB" prefWidth="${clientUnitsAnchPn.width * 0.25}" text="للوحده" toggleGroup="${editingToggleGroup}" />
+            <ToggleButton fx:id="transformationTB" prefWidth="${clientUnitsAnchPn.width * 0.25}" text="تنازل" toggleGroup="${editingToggleGroup}" />
+        </children>
+    </HBox>
+    <HBox fx:id="showingHBox" nodeOrientation="RIGHT_TO_LEFT" alignment="CENTER" >
+        <children>
+            <ToggleButton fx:id="showFinInfoTB" onMouseClicked="#showFinInfo" prefWidth="${clientUnitsAnchPn.width * 0.375}" text="عرض بيانات ماليه" toggleGroup="${showingToggleGroup}" />
+            <ToggleButton fx:id="showInstlmntsTB" onMouseClicked="#showInstallments"  prefWidth="${clientUnitsAnchPn.width * 0.375}" text="عرض الاقساط" toggleGroup="${showingToggleGroup}" />
+        </children>
+    </HBox>
+    <AnchorPane fx:id="editingAnchorPn" id="darkAncPn" prefHeight="${clientUnitsAnchPn.height * 0.45}" prefWidth="${clientUnitsAnchPn.width * 0.75}" >
+        <children>
+            <HBox fx:id="financialDealingHB" id="financialDealingHB" prefHeight="${clientUnitsAnchPn.height * 0.01}" prefWidth="${clientUnitsAnchPn.width * 0.75}" nodeOrientation="RIGHT_TO_LEFT" AnchorPane.rightAnchor="0.25">
+                <ToggleButton fx:id="installmentTB" id="darkBgTB" onMouseClicked="#prepareInstallmentPane" text="تـقـسـيـط" prefWidth="${clientUnitsAnchPn.width * 0.25}" toggleGroup="${financialDealingToggleGroup}" />
+                <ToggleButton fx:id="cashTB" id="darkBgTB" text="كــــــاش" onMouseClicked="#prepareCashPane" prefWidth="${clientUnitsAnchPn.width * 0.25}" toggleGroup="${financialDealingToggleGroup}" />
+                <ToggleButton fx:id="installmentsEditingTB" text="دفــعــات" id="darkBgTB" prefWidth="${clientUnitsAnchPn.width * 0.25}" toggleGroup="${financialDealingToggleGroup}" />
+            </HBox>
+            <AnchorPane fx:id="installmentAnchPn" id="darkBgAnchPn" prefHeight="${clientUnitsAnchPn.height * 0.3}" prefWidth="${clientUnitsAnchPn.width * 0.75}">
+                <children>
+                    <HBox fx:id="reservationPaymentHB" nodeOrientation="RIGHT_TO_LEFT" alignment="CENTER_RIGHT" AnchorPane.topAnchor="0.0" >
+                        <Text id="whiteWriting" text="دفعة حجز : " />
+                        <ComboBox fx:id="reservationCB" prefWidth="${clientUnitsAnchPn.width * 0.12}" />
+                        <TextField fx:id="reservationValueTxtFld" prefWidth="${clientUnitsAnchPn.width * 0.09}" promptText="بقيمة" />
+                        <HBox nodeOrientation="RIGHT_TO_LEFT" alignment="CENTER" >
+                            <TextField fx:id="reservationDayTxtFld"  prefHeight="${clientUnitsAnchPn.height * 0.001}" prefWidth="${clientUnitsAnchPn.width * 0.03}" id="yellowWriting" promptText="يوم" />
+                            <TextField fx:id="reservationMonthTxtFld"  prefHeight="${clientUnitsAnchPn.height * 0.001}" prefWidth="${clientUnitsAnchPn.width * 0.035}" id="yellowWriting" promptText="شهر" />
+                            <TextField fx:id="reservationYearTxtFld"  prefHeight="${clientUnitsAnchPn.height * 0.001}" prefWidth="${clientUnitsAnchPn.width * 0.06}" id="yellowWriting" promptText="سنه" />    
+                        </HBox>
+                        <Button fx:id="addReservInstlmntBtn" id="BtnStyle" onMouseClicked="#addReservationInstallment" prefHeight="${clientUnitsAnchPn.height * 0.01}" prefWidth="${clientUnitsAnchPn.width * 0.07}" >
+                            <graphic>
+                                <Label text="اضافه" /> 
+                            </graphic>
+                        </Button>
+                    </HBox>
+                    <HBox fx:id="installmentHB" alignment="CENTER_RIGHT" nodeOrientation="RIGHT_TO_LEFT" >
+                        <Text id="whiteWriting" text="تقسيط : " />
+                        <HBox nodeOrientation="RIGHT_TO_LEFT" alignment="CENTER" >
+                            <TextField fx:id="startInstlmntDayTxtFld"  prefHeight="${clientUnitsAnchPn.height * 0.001}" prefWidth="${clientUnitsAnchPn.width * 0.03}" id="yellowWriting" promptText="يوم" />
+                            <TextField fx:id="startInstlmntMonthTxtFld"  prefHeight="${clientUnitsAnchPn.height * 0.001}" prefWidth="${clientUnitsAnchPn.width * 0.035}" id="yellowWriting" promptText="شهر" />
+                            <TextField fx:id="startInstlmntYearTxtFld"  prefHeight="${clientUnitsAnchPn.height * 0.001}" prefWidth="${clientUnitsAnchPn.width * 0.06}" id="yellowWriting" promptText="سنه" />    
+                        </HBox>
+                        <TextField fx:id="instlmntsCountTxtFld" prefHeight="${clientUnitsAnchPn.height * 0.001}" prefWidth="${clientUnitsAnchPn.width * 0.1}" id="whiteWriting" promptText="العدد:" />
+                        <TextField fx:id="milestonePeriodTxtFld" prefHeight="${clientUnitsAnchPn.height * 0.001}" prefWidth="${clientUnitsAnchPn.width * 0.1}" id="yellowWriting" promptText="الدفع كل : " />
+                    </HBox>
+                    <HBox fx:id="unitPriceHB" alignment="CENTER_RIGHT" nodeOrientation="RIGHT_TO_LEFT" >
+                        <Text fx:id="unitPriceTxt" id="smallWhiteWriting" />
+                        <Text fx:id="paidFromUnitPriceTxt" id="smallYellowWriting" />
+                        <Text fx:id="remainedFromUnitPriceTxt" id="smallWhiteWriting"/>
+                        <TextField fx:id="discountRationTxtFld" onAction="#calculateDiscount" prefHeight="${clientUnitsAnchPn.height * 0.01}" prefWidth="${clientUnitsAnchPn.width * 0.05}" promptText="الخصم %" />
+                        <Text fx:id="priceAfterDiscountTxt" id="smallYellowWriting" />
+                        <Text fx:id="installmentedValueTxt" id="smallWhiteWriting" />
+                        <Button fx:id="createInstlmntBtn" onMouseClicked="#createInstallments" id="BtnStyle" prefHeight="${clientUnitsAnchPn.height * 0.01}" prefWidth="${clientUnitsAnchPn.width * 0.07}" >
+                            <graphic>
+                                <Label text="انشاء" /> 
+                            </graphic>
+                        </Button>
+                    </HBox>
+                    <ScrollPane fx:id="instalmntScPn" prefHeight="${clientUnitsAnchPn.height * 0.22}" prefWidth="${clientUnitsAnchPn.width * 0.75}"  id="vScPane" AnchorPane.rightAnchor="0.0">
+                        <AnchorPane fx:id="createdInstlmntsAnchPn" prefHeight="${clientUnitsAnchPn.height * 0.22}" prefWidth="${clientUnitsAnchPn.width * 0.75}" >
+                            <children>
+                        
+                            </children>
+                        </AnchorPane>
+                    </ScrollPane>
+                </children>
+            </AnchorPane>
+            <AnchorPane fx:id="paymentsEditingAnchPn" id="darkBgAnchPn" prefHeight="${clientUnitsAnchPn.height * 0.3}" prefWidth="${clientUnitsAnchPn.width * 0.75}">
+                <children>
+                    <HBox fx:id="editingOptionsHB" alignment="CENTER" nodeOrientation="RIGHT_TO_LEFT">
+                        <RadioButton fx:id="editPaymentRB" text="تعديل دفعه" toggleGroup="${editingInstallmentsToggleGroup}" />
+                        <RadioButton fx:id="payPaymentRB" text="دفع دفعه" onMouseClicked="#preparePayingVBs" toggleGroup="${editingInstallmentsToggleGroup}" />
+                        <RadioButton fx:id="addPaymentRB" text="اضافة دفعه" toggleGroup="${editingInstallmentsToggleGroup}" />
+                        <RadioButton fx:id="restorInstallmentRB" text="استرداد دفعه" toggleGroup="${editingInstallmentsToggleGroup}" />
+                    </HBox>
+                    <HBox fx:id="payingHB" prefWidth="${clientUnitsAnchPn.width * 0.75}" nodeOrientation="RIGHT_TO_LEFT" alignment="CENTER" >
+                        <HBox fx:id="PaymentCode4PayingHB" nodeOrientation="RIGHT_TO_LEFT" alignment="CENTER_RIGHT" >
+                            <Text id="whiteWriting" text="كود الدفعه : "/>
+                            <TextField fx:id="paymentCode4PayingTxtFld" />
+                            <Button fx:id="editPayment4PayingBtn" onMouseClicked="#showPayingVB" id="BtnStyle" prefHeight="${clientUnitsAnchPn.height * 0.01}" prefWidth="${clientUnitsAnchPn.width * 0.07}" >
+                                <graphic>
+                                    <Label text="عرض" /> 
+                                </graphic>
+                            </Button>
+                        </HBox>
+                        <HBox fx:id="bankUpCheckHB" nodeOrientation="RIGHT_TO_LEFT" alignment="CENTER_RIGHT" >
+                            <Text id="whiteWriting" text="تحصيل شيك: "/>
+                            <TextField fx:id="checkIdValidationTxtFld" prefWidth="${clientUnitsAnchPn.width * 0.07}" promptText="رقم الشيك" />
+                            <TextField fx:id="installmentIdValidationTxtFld" prefWidth="${clientUnitsAnchPn.width * 0.07}" promptText="كود الدفعه" />
+                            <Button fx:id="bankUpCheckBtn" onMouseClicked="#showBankingUpVB" id="BtnStyle" prefHeight="${clientUnitsAnchPn.height * 0.01}" prefWidth="${clientUnitsAnchPn.width * 0.07}" >
+                                <graphic>
+                                    <Label text="عرض" /> 
+                                </graphic>
+                            </Button>
+                        </HBox>
+                    </HBox>
+                    <AnchorPane fx:id="payInstlmntPane" prefHeight="${clientUnitsAnchPn.height * 0.2}" prefWidth="${clientUnitsAnchPn.width * 0.75}" >
+                        <children>
+                            <VBox fx:id="payInstallmentVB" >
+                                <HBox fx:id="payInstlmntFirstHB" alignment="CENTER_LEFT" nodeOrientation="RIGHT_TO_LEFT" >
+                                    <Text fx:id="paymentName4PayingTxt" id="whiteWriting" />
+                                    <Text fx:id="paymentValue4PayingTxt" id="whiteWriting" />
+                                    <RadioButton fx:id="paymentTypeRB" text="شيك" />
+                                    <Text fx:id="installmentDateTxt" id="whiteWriting"/>
+                                    <HBox nodeOrientation="RIGHT_TO_LEFT" alignment="CENTER_LEFT" >    
+                                        <Text text="d" id="smallWhiteWriting" />    
+                                        <Text fx:id="delayDays" id="yellowWriting" />    
+                                        <Text text=" m" id="smallWhiteWriting" />    
+                                        <Text fx:id="delayMonths" id="yellowWriting" />    
+                                    </HBox>
+                                </HBox>
+                                <HBox fx:id="payInstlmntSecondHB" alignment="CENTER_LEFT" nodeOrientation="RIGHT_TO_LEFT">
+                                    <HBox alignment="CENTER_LEFT" nodeOrientation="RIGHT_TO_LEFT" >
+                                        <Text text="المتبقى: " id="smallWhiteWriting" />
+                                        <Text fx:id="remainedInstlmntCashTxt" id="yellowWriting" />
+                                    </HBox>
+                                    <HBox alignment="CENTER_LEFT" nodeOrientation="RIGHT_TO_LEFT" >
+                                        <Text text="غرامه: " id="smallWhiteWriting" />
+                                        <TextField fx:id="mulctRatioTxtFld" prefWidth="${clientUnitsAnchPn.width * 0.05}" onAction="#calculateMulct" promptText=" % " />
+                                    </HBox>
+                                    <Text fx:id="mulctValueTxt" id="yellowWriting" />
+                                    <TextField fx:id="bankTxtFld" prefWidth="${clientUnitsAnchPn.width * 0.1}" promptText="اسم البنك" />
+                                    <TextField fx:id="checkIdTxtFld" prefWidth="${clientUnitsAnchPn.width * 0.1}" promptText="رقم الشيك" />
+                                </HBox>
+                                <HBox fx:id="payInstlmntThirdHB" alignment="CENTER_LEFT" nodeOrientation="RIGHT_TO_LEFT" >
+                                    <TextField fx:id="paidValueTxtFld" prefWidth="${clientUnitsAnchPn.width * 0.1}" promptText="القيمة المدفوعه" />
+                                    <TextField fx:id="recieptNo4PayingTxtFld" prefWidth="${clientUnitsAnchPn.width * 0.1}" promptText="رقم الايصال" />                                    
+                                    <HBox nodeOrientation="RIGHT_TO_LEFT">
+                                        <Text fx:id="paymentDateStr" text="تاريخ الدفع: " id="whiteWriting"  />
+                                        <TextField fx:id="payingDayTxtFld" prefWidth="${clientUnitsAnchPn.width * 0.025}" promptText="dd" />
+                                        <TextField fx:id="payingMonthTxtFld" prefWidth="${clientUnitsAnchPn.width * 0.025}" promptText="mm" />
+                                        <TextField fx:id="payingYearTxtFld" prefWidth="${clientUnitsAnchPn.width * 0.05}" promptText="yy" />
+                                    </HBox>
+                                </HBox>
+                                <HBox alignment="CENTER" prefWidth="${clientUnitsAnchPn.width * 0.6}" >
+                                    <Button fx:id="payInstlmntBtn" onMouseClicked="#payInstallment" id="BtnStyle" prefHeight="${clientUnitsAnchPn.height * 0.01}" prefWidth="${clientUnitsAnchPn.width * 0.07}" >
+                                        <graphic>
+                                            <Label text="دفع" /> 
+                                        </graphic>
+                                    </Button>
+                                </HBox>
+                            </VBox>
+                            <VBox fx:id="bankingUpVB" >
+                                <HBox fx:id="checkDataHB" alignment="CENTER_LEFT" nodeOrientation="RIGHT_TO_LEFT" >
+                                    <Text fx:id="bankTxt" id="whiteWriting" />
+                                    <Text fx:id="payingDateTxt" id="yellowWriting" />
+                                </HBox>
+                                <HBox fx:id="checkInputsHB" alignment="CENTER_LEFT" nodeOrientation="RIGHT_TO_LEFT" >
+                                    <TextField fx:id="checkValueTxtFld" prefWidth="${clientUnitsAnchPn.width * 0.07}" alignment="CENTER_LEFT" promptText="قيمة الشيك" />
+                                    <HBox nodeOrientation="RIGHT_TO_LEFT">
+                                        <Text id="whiteWriting" text="تاريخ التحصيل :" />
+                                        <TextField fx:id="bankUpDayTxtFld" prefWidth="${clientUnitsAnchPn.width * 0.025}" promptText="dd" />
+                                        <TextField fx:id="bankUpMonthTxtFld" prefWidth="${clientUnitsAnchPn.width * 0.025}" promptText="mm" />
+                                        <TextField fx:id="bankUpYearTxtFld" prefWidth="${clientUnitsAnchPn.width * 0.05}" promptText="yy" />
+                                    </HBox>
+                                </HBox>
+                                <HBox alignment="CENTER" prefWidth="${clientUnitsAnchPn.width * 0.6}" >
+                                    <Button onMouseClicked="#bankUpCheck" id="BtnStyle" prefHeight="${clientUnitsAnchPn.height * 0.01}" prefWidth="${clientUnitsAnchPn.width * 0.07}" >
+                                        <graphic>
+                                            <Label text="تجصيل" /> 
+                                        </graphic>
+                                    </Button>
+                                </HBox>
+                            </VBox>
+                        </children>
+                    </AnchorPane>
+                    <AnchorPane fx:id="editInstlmntPane" prefHeight="${clientUnitsAnchPn.height * 0.2}" prefWidth="${clientUnitsAnchPn.width * 0.75}" >
+                        <children>
+                            <TextField fx:id="paymentCode4EditingTxtFld" nodeOrientation="RIGHT_TO_LEFT" promptText="كود الدفعه" />
+                            <HBox fx:id="editInstallmentOptionsHB" style="-fx-background-color: grey;" nodeOrientation="RIGHT_TO_LEFT" AnchorPane.rightAnchor="0.0" >
+                                <ToggleButton fx:id="installmentPrimaryInfoEditingTB" prefWidth="${clientUnitsAnchPn.width * 0.375}" onMouseClicked="#showEditPrimaryInstlmntVB" id="darkBgTB" text="الدفعه" toggleGroup="${editingInstallmentToggleGroup}" />
+                                <ToggleButton fx:id="installmentReceiptsEditing" prefWidth="${clientUnitsAnchPn.width * 0.375}" onMouseClicked="#showEditReceiptsScPn" id="darkBgTB" text="الايصالات" toggleGroup="${editingInstallmentToggleGroup}" />
+                            </HBox>
+                            <VBox fx:id="editInstallmentVB" >
+                                <HBox fx:id="editInstlmntFirstHB" alignment="CENTER_LEFT" nodeOrientation="RIGHT_TO_LEFT" >
+                                    <ComboBox fx:id="paymentName4editingCB" prefWidth="${clientUnitsAnchPn.width * 0.13}" promptText="اسم الدفعه:" />
+                                    <HBox>
+                                        <Text id="whiteWriting" text="قيمة الدفعه: " />    
+                                        <TextField fx:id="paymentValue4editingTxtFld" promptText="قيمة الدفعه" />    
+                                    </HBox>
+                                </HBox>
+                                <HBox fx:id="editInstlmntSecondHB" alignment="CENTER_LEFT" nodeOrientation="RIGHT_TO_LEFT">
+                                    <HBox>
+                                        <Text id="whiteWriting" text="قيمة المدفوعه: " />    
+                                        <TextField fx:id="editPaidValueTxtFld" promptText="القيمة المدفوعه" />
+                                    </HBox>
+                                    <HBox nodeOrientation="RIGHT_TO_LEFT">
+                                        <Text id="whiteWriting" text="ت.الاستحقاق: " />
+                                        <TextField fx:id="editInstallmentDayTxtFld" prefWidth="${clientUnitsAnchPn.width * 0.025}" promptText="dd" />
+                                        <TextField fx:id="editInstallmentMonthTxtFld" prefWidth="${clientUnitsAnchPn.width * 0.025}" promptText="mm" />
+                                        <TextField fx:id="editInstallmentYearTxtFld" prefWidth="${clientUnitsAnchPn.width * 0.05}" promptText="yy" />
+                                    </HBox>
+                                </HBox>
+                                <HBox alignment="CENTER" prefWidth="${clientUnitsAnchPn.width * 0.65}" >
+                                    <Button fx:id="editInstlmntBtn" id="BtnStyle" onMouseClicked="#editInstallment" prefHeight="${clientUnitsAnchPn.height * 0.01}" prefWidth="${clientUnitsAnchPn.width * 0.07}" >
+                                        <graphic>
+                                            <Label text="تعديل" /> 
+                                        </graphic>
+                                    </Button>
+                                </HBox>
+                            </VBox>
+                            <ScrollPane fx:id="editReceiptsScPn" prefHeight="${clientUnitsAnchPn.height * 0.15}" prefWidth="${clientUnitsAnchPn.width * 0.75}" id="vScPane" AnchorPane.rightAnchor="0.0" >
+                                <content>
+                                    <AnchorPane fx:id="editReceiptsAnchPn" prefHeight="${clientUnitsAnchPn.height * 0.15}" prefWidth="${clientUnitsAnchPn.width * 0.75}" >
+                                        <children>
+                                            
+                                        </children>
+                                    </AnchorPane>
+                                </content>
+                            </ScrollPane>
+                        </children>
+                    </AnchorPane>
+                    <HBox fx:id="restorInstallmentHB" nodeOrientation="RIGHT_TO_LEFT" alignment="CENTER" >
+                        <Text id="whiteWriting" text="دفعه مسترده: " />
+                        <TextField fx:id="restoredValueTxtFld" prefWidth="${clientUnitsAnchPn.width * 0.07}" promptText="بقيمة"/>
+                        <TextField fx:id="restorationReceiptTxtFld" prefWidth="${clientUnitsAnchPn.width * 0.07}" promptText="ايصال"/>
+                        <HBox alignment="CENTER" >
+                            <Text id="whiteWriting" text="ت.الاسترداد: " />
+                            <TextField fx:id="restorInstlmntDayTxtFld" prefWidth="${clientUnitsAnchPn.width * 0.025}" promptText="dd" />
+                            <TextField fx:id="restorInstlmntMonthTxtFld" prefWidth="${clientUnitsAnchPn.width * 0.025}" promptText="mm" />
+                            <TextField fx:id="restorInstlmntYearTxtFld" prefWidth="${clientUnitsAnchPn.width * 0.05}"  promptText="yy" />
+                        </HBox>                        
+                    </HBox>
+                    <HBox fx:id="restorInstallment2LayerHB" nodeOrientation="RIGHT_TO_LEFT" >
+                        <Text id="whiteWriting" text="استرداد مـن: " />
+                        <RadioButton fx:id="restorationFromPrimaryRB" text="مستحقات اساسيه" toggleGroup="${restorationToggleGroup}" />
+                        <RadioButton fx:id="restorationFromAdditionalRB" text="مستحقات اضافيه" toggleGroup="${restorationToggleGroup}" />
+                        <RadioButton fx:id="restorationFromFacilitiesRB" text="مرافق" toggleGroup="${restorationToggleGroup}" />
+                        <RadioButton fx:id="restorationFromMaintenanceRB" text="صيانه" toggleGroup="${restorationToggleGroup}" />
+                        <RadioButton fx:id="restorationFromAdjustmentRB" text="تعديلات" toggleGroup="${restorationToggleGroup}" />
+                    </HBox> 
+                    <HBox fx:id="restorationCheckHB" nodeOrientation="RIGHT_TO_LEFT">
+                        <RadioButton fx:id="restorationCheckRB" text="شيك" />
+                        <TextField fx:id="resotationBankTxtFld" prefWidth="${clientUnitsAnchPn.width * 0.07}" promptText="بنك"/>
+                        <TextField fx:id="restoredCheckIdTxtFld" prefWidth="${clientUnitsAnchPn.width * 0.07}" promptText="رقم الشيك"/>
+                        <HBox fx:id="restorationCheckDateHB" nodeOrientation="RIGHT_TO_LEFT">
+                            <Text id="whiteWriting" text="تاريخ الشيك:" />
+                            <TextField fx:id="resotationCheckDayTxtFld" prefWidth="${clientUnitsAnchPn.width * 0.03}" promptText="dd"/>
+                            <TextField fx:id="resotationCheckMonTxtFld" prefWidth="${clientUnitsAnchPn.width * 0.03}" promptText="mm"/>
+                            <TextField fx:id="resotationCheckYearTxtFld" prefWidth="${clientUnitsAnchPn.width * 0.05 }" promptText="yy"/>
+                        </HBox>
+                    </HBox>
+                    <HBox fx:id="restorInstallment3LayerHB" prefWidth="${clientUnitsAnchPn.width * 0.6}" alignment="CENTER" >
+                        <Button fx:id="restorInstlmntBtn" id="BtnStyle" onMouseClicked="#restorePayment" prefHeight="${clientUnitsAnchPn.height * 0.01}" prefWidth="${clientUnitsAnchPn.width * 0.07}" >
+                            <graphic>
+                                <Label text="استرداد" /> 
+                            </graphic>
+                        </Button>
+                    </HBox>
+                    <HBox fx:id="addInstallmentHB" nodeOrientation="RIGHT_TO_LEFT" alignment="CENTER_RIGHT" >
+                        <ComboBox fx:id="addPaymentCB" prefWidth="${clientUnitsAnchPn.width * 0.12}" promptText="اسم الدفعه : " />
+                        <HBox>
+                            <Text id="whiteWriting" text="ت.الاستحقاق : " />
+                            <TextField fx:id="addInstlmntDayTxtFld" prefWidth="${clientUnitsAnchPn.width * 0.025}" promptText="dd" />
+                            <TextField fx:id="addInstlmntMonthTxtFld" prefWidth="${clientUnitsAnchPn.width * 0.025}" promptText="mm" />
+                            <TextField fx:id="addInstlmntYearTxtFld" prefWidth="${clientUnitsAnchPn.width * 0.05}"  promptText="yy" />
+                        </HBox>
+                        <TextField fx:id="addInstallmentValueTxtFld" prefWidth="${clientUnitsAnchPn.width * 0.07}" promptText="بقيمة"/>
+                        <Button fx:id="addInstallmentBtn" id="BtnStyle" onMouseClicked="#addInstallment" prefHeight="${clientUnitsAnchPn.height * 0.01}" prefWidth="${clientUnitsAnchPn.width * 0.07}" >
+                            <graphic>
+                                <Label text="اضافه" /> 
+                            </graphic>
+                        </Button>
+                    </HBox>
+                </children>
+            </AnchorPane>
+            <AnchorPane fx:id="cashPaymentAnchPn" id="darkBgAnchPn" prefHeight="${clientUnitsAnchPn.height * 0.3}" prefWidth="${clientUnitsAnchPn.width * 0.75}" >
+                <children>
+                    <VBox fx:id="cashPaymentVB" prefWidth="${clientUnitsAnchPn.width * 0.65}" >
+                        <HBox fx:id="cashUnitPriceHB" id="red" nodeOrientation="RIGHT_TO_LEFT" alignment="CENTER_LEFT">
+                            <Text fx:id="unitPriceCashTxt" id="whiteWriting" text="" />
+                            <Text fx:id="unitRemainedCashTxt" id="yellowWriting" text="" />    
+                        </HBox>
+                        <HBox fx:id="cashDiscountRatioHB" prefWidth="${clientUnitsAnchPn.width * 0.65}" alignment="CENTER_LEFT" nodeOrientation="RIGHT_TO_LEFT" >
+                            <Text id="yellowWriting" text="اضافة نسبة خصم : "/>
+                            <TextField fx:id="cashDiscountRetioTxtFld" />
+                            <Button fx:id="addDiscountRetioBtn" onMouseClicked="#calculateCashDiscount" id="BtnStyle" prefHeight="${clientUnitsAnchPn.height * 0.01}" prefWidth="${clientUnitsAnchPn.width * 0.07}" >
+                                <graphic>
+                                    <Label text="اضافه" /> 
+                                </graphic>
+                            </Button>
+                        </HBox>
+                        <HBox fx:id="cashAfterDiscountHB" prefWidth="${clientUnitsAnchPn.width * 0.65}" alignment="CENTER_LEFT" nodeOrientation="RIGHT_TO_LEFT" >
+                            <Text id="whiteWriting" text="السعر بعد الخصم : " />
+                            <Text fx:id="cashPriceTxt" id="yellowWriting" />
+                        </HBox>
+                        <HBox fx:id="cashRecieptHB" prefWidth="${clientUnitsAnchPn.width * 0.65}" alignment="CENTER_LEFT" nodeOrientation="RIGHT_TO_LEFT" >  
+                            <Text id="yellowWriting" text="رقم الايصال : " />
+                            <TextField fx:id="recieptTxtFld" />
+                        </HBox>
+                        <HBox fx:id="cashDateHB" prefWidth="${clientUnitsAnchPn.width * 0.65}" alignment="CENTER_LEFT" nodeOrientation="RIGHT_TO_LEFT" >
+                            <Text id="whiteWriting" text="التاريخ : " />
+                            <HBox>    
+                                <TextField fx:id="cashPaymentDayTxtFld" alignment="CENTER" prefWidth="${clientUnitsAnchPn.width * 0.03}" promptText="dd" />
+                                <TextField fx:id="cashPaymentMonthTxtFld" alignment="CENTER" prefWidth="${clientUnitsAnchPn.width * 0.04}" promptText="mm" />
+                                <TextField fx:id="cashPaymentYearTxtFld" alignment="CENTER" prefWidth="${clientUnitsAnchPn.width * 0.06}" promptText="yy" />
+                            </HBox>
+                        </HBox>
+                        <HBox fx:id="cashCheckDataHB" alignment="CENTER_LEFT" nodeOrientation="RIGHT_TO_LEFT" >
+                            <RadioButton fx:id="cachCheckRB" id="whiteWriting" text="شيك" />
+                            <TextField fx:id="cashCheckBankTxtFld" alignment="CENTER" prefWidth="${clientUnitsAnchPn.width * 0.1}" promptText="بنك" />
+                            <TextField fx:id="cashCheckIdTxtFld" alignment="CENTER" prefWidth="${clientUnitsAnchPn.width * 0.1}" promptText="رقم الشيك" />
+                            <HBox fx:id="cashCheckDateHB" alignment="CENTER_LEFT" >
+                                <Text id="whiteWriting" text="ت.التحصيل: " />
+                                <TextField fx:id="DayTxtFld" alignment="CENTER" prefWidth="${clientUnitsAnchPn.width * 0.03}" promptText="dd" />
+                                <TextField fx:id="MonTxtFld" alignment="CENTER" prefWidth="${clientUnitsAnchPn.width * 0.04}" promptText="mm" />
+                                <TextField fx:id="YearTxtFld" alignment="CENTER" prefWidth="${clientUnitsAnchPn.width * 0.06}" promptText="yy" />
+                            </HBox>
+                        </HBox>
+                        <HBox fx:id="cashOptionsHB" prefWidth="${clientUnitsAnchPn.width * 0.65}" alignment="CENTER" nodeOrientation="RIGHT_TO_LEFT" >
+                            <Button fx:id="payCashBtn" onMouseClicked="#payCash" id="BtnStyle" prefHeight="${clientUnitsAnchPn.height * 0.01}" prefWidth="${clientUnitsAnchPn.width * 0.07}" >
+                                <graphic>
+                                    <Label text="دفع" /> 
+                                </graphic>
+                            </Button>
+                            <Button fx:id="addCashCheckBtn" onMouseClicked="#cashInstallment" id="BtnStyle" prefHeight="${clientUnitsAnchPn.height * 0.01}" prefWidth="${clientUnitsAnchPn.width * 0.07}" >
+                                <graphic>
+                                    <Label text="شيك" /> 
+                                </graphic>
+                            </Button>
+                        </HBox>
+                    </VBox>
+                </children>
+            </AnchorPane>
+        </children>
+    </AnchorPane>
+    <AnchorPane fx:id="showingAnchorPn" id="darkAncPn" prefHeight="${clientUnitsAnchPn.height * 0.45}" prefWidth="${clientUnitsAnchPn.width * 0.75}" >
+        <children>
+            <HBox fx:id="unitFinInfoHB" nodeOrientation="RIGHT_TO_LEFT">
+                <Text fx:id="showUnitPriceTxt" id="whiteWriting"/>
+                <Text fx:id="discountRatioTxt" id="yellowWriting"/>
+                <Text fx:id="unitPriceAfterDiscountTxt" id="whiteWriting"/>
+            </HBox>
+            <HBox fx:id="essentialPaymentHB" nodeOrientation="RIGHT_TO_LEFT">
+                <Text fx:id="essentialPaymentValueTxt" id="yellowWriting"/>
+                <Text fx:id="paidEssentialCashTxt" id="whiteWriting"/>
+                <Text fx:id="remainedEssentialTxt" id="yellowWriting"/>
+            </HBox>
+            <HBox fx:id="additionalPaymentHB" nodeOrientation="RIGHT_TO_LEFT">
+                <Text fx:id="additionalPaymentValueTxt" id="whiteWriting"/>
+                <Text fx:id="paidAdditionalCashTxt" id="yellowWriting"/>
+                <Text fx:id="remainedAdditionalTxt" id="whiteWriting"/>
+            </HBox>
+            <HBox fx:id="adjustmentPaymentHB" nodeOrientation="RIGHT_TO_LEFT">
+                <Text fx:id="adjustmentPaymentValueTxt" id="whiteWriting"/>
+                <Text fx:id="paidAdjustmentCashTxt" id="yellowWriting"/>
+                <Text fx:id="remainedAdjustmentTxt" id="whiteWriting"/>
+            </HBox>
+            <HBox fx:id="facilitiesPaymentHB" nodeOrientation="RIGHT_TO_LEFT">
+                <Text fx:id="facilitiesPaymentValueTxt" id="whiteWriting"/>
+                <Text fx:id="paidFacilitiesCashTxt" id="yellowWriting"/>
+                <Text fx:id="remainedFacilitiesTxt" id="whiteWriting"/>
+            </HBox> 
+            <HBox fx:id="maintenancePaymentHB" nodeOrientation="RIGHT_TO_LEFT">
+                <Text fx:id="maintenancePaymentValueTxt" id="whiteWriting"/>
+                <Text fx:id="paidMaintenanceCashTxt" id="yellowWriting"/>
+                <Text fx:id="remainedMaintenanceTxt" id="whiteWriting"/>
+            </HBox>
+            <HBox fx:id="totalRequiredHB" nodeOrientation="RIGHT_TO_LEFT">
+                <Text fx:id="totalRequiredCashTxt" id="yellowWriting"/>
+                <Text fx:id="totalPaidCashTxt" id="whiteWriting"/>
+                <Text fx:id="totalRemainedTxt" id="yellowWriting"/>
+            </HBox>
+        </children>
+    </AnchorPane>
+    <ScrollPane fx:id="instalmntShowingScPn" nodeOrientation="RIGHT_TO_LEFT" prefHeight="${clientUnitsAnchPn.height * 0.45}" prefWidth="${clientUnitsAnchPn.width * 0.75}"  id="vScPane">
+        <AnchorPane fx:id="savedInstlmntsAnchPn" nodeOrientation="RIGHT_TO_LEFT" prefHeight="${clientUnitsAnchPn.height * 0.45}" prefWidth="${clientUnitsAnchPn.width * 0.75}" >
+            <children>
+                        
+            </children>
+        </AnchorPane>
+    </ScrollPane>
+    <AnchorPane fx:id="unitOptionsPane" id="darkAncPn" prefHeight="${clientUnitsAnchPn.height * 0.45}" prefWidth="${clientUnitsAnchPn.width * 0.75}" >
+        <children>
+            <HBox fx:id="reinstallationHB" nodeOrientation="RIGHT_TO_LEFT" >
+                <Text id="yellowWriting" text="تهيئة اعادة تقسيط الغير مدفوع:" />
+                <Button fx:id="reinstallationBtn" onMouseClicked="#deleteUnpaidInstallment" id="BtnStyle" prefHeight="${clientUnitsAnchPn.height * 0.01}" prefWidth="${clientUnitsAnchPn.width * 0.07}" >
+                    <graphic>
+                        <Label text="تهيئه" /> 
+                    </graphic>
+                </Button>
+            </HBox>
+            <HBox fx:id="cancelReservationHB" nodeOrientation="RIGHT_TO_LEFT">
+                <Text id="yellowWriting" text="الغـــــــــاء حجــــــــــز: " />
+                <Button fx:id="cancelReservationBtn" onMouseClicked="#cancelReservation" id="BtnStyle" prefHeight="${clientUnitsAnchPn.height * 0.01}" prefWidth="${clientUnitsAnchPn.width * 0.07}" >
+                    <graphic>
+                        <Label text="الغاء" /> 
+                    </graphic>
+                </Button>
+            </HBox>
+            <HBox fx:id="receptUnitHB" nodeOrientation="RIGHT_TO_LEFT" >
+                <Text fx:id="setUnitFreeTxt" id="yellowWriting" text="تسليم الوحده : " />
+                <HBox nodeOrientation="RIGHT_TO_LEFT" >
+                    <TextField fx:id="receptionDayTxtFld" prefWidth="${clientUnitsAnchPn.width * 0.03}" alignment="CENTER" promptText="dd" />
+                    <TextField fx:id="receptionMonthTxtFld" prefWidth="${clientUnitsAnchPn.width * 0.04}" alignment="CENTER" promptText="mm" />
+                    <TextField fx:id="receptionYearTxtFld" prefWidth="${clientUnitsAnchPn.width * 0.06}" alignment="CENTER" promptText="yy" />
+                </HBox>
+                <Button fx:id="receptionBtn" onMouseClicked="#handOverUnit" id="BtnStyle" prefHeight="${clientUnitsAnchPn.height * 0.01}" prefWidth="${clientUnitsAnchPn.width * 0.07}" >
+                    <graphic>
+                        <Label text="تسليم" /> 
+                    </graphic>
+                </Button>
+            </HBox>
+            <HBox fx:id="restorationHB" nodeOrientation="RIGHT_TO_LEFT" >
+                <Text id="yellowWriting" text="اســتـرجــاع :  " />
+                <HBox nodeOrientation="RIGHT_TO_LEFT" >
+                    <TextField fx:id="restorationDayTxtFld" prefWidth="${clientUnitsAnchPn.width * 0.03}" alignment="CENTER" promptText="dd" />
+                    <TextField fx:id="restorationMonthTxtFld" prefWidth="${clientUnitsAnchPn.width * 0.04}" alignment="CENTER" promptText="mm" />
+                    <TextField fx:id="restorationYearTxtFld" prefWidth="${clientUnitsAnchPn.width * 0.06}" alignment="CENTER" promptText="yy" />
+                </HBox>
+                <Button fx:id="restorationBtn" onMouseClicked="#restorUnit" id="BtnStyle" prefHeight="${clientUnitsAnchPn.height * 0.01}" prefWidth="${clientUnitsAnchPn.width * 0.07}" >
+                    <graphic>
+                        <Label text="استرجاع" /> 
+                    </graphic>
+                </Button>
+            </HBox>
+        </children>
+    </AnchorPane>
+    <AnchorPane fx:id="transformationPane" id="darkAncPn" prefHeight="${clientUnitsAnchPn.height * 0.45}" prefWidth="${clientUnitsAnchPn.width * 0.75}" >
+        <children>
+            <HBox fx:id="existedClientHB" nodeOrientation="RIGHT_TO_LEFT" >
+                <Text id="whiteWriting" text="تنازل لعميل مسبق : " />
+                <TextField fx:id="clientCodeTxtFld" promptText="كود العميل" />
+                <Button onMouseClicked="#getExistedClient" id="BtnStyle" prefHeight="${clientUnitsAnchPn.height * 0.01}" prefWidth="${clientUnitsAnchPn.width * 0.07}" >
+                    <graphic>
+                        <Label text="عرض" /> 
+                    </graphic>
+                </Button>
+            </HBox>
+            <HBox fx:id="existedClientInfoHB" nodeOrientation="RIGHT_TO_LEFT" >
+                <Text id="smallYellowWriting" fx:id="existedClientNameTxt" />
+                <Text id="smallYellowWriting" fx:id="existedClientPersonalIdTxt" />
+                <Text id="smallYellowWriting" fx:id="existedClientPhoneNoTxt" />
+            </HBox>
+            <Text fx:id="transformationHeadTxt" id="yellowWriting" text="تنازل لعميل جديد : " />
+            <HBox fx:id="clientInfoTopLayerHB" nodeOrientation="RIGHT_TO_LEFT" >
+                <HBox nodeOrientation="RIGHT_TO_LEFT" alignment="CENTER_RIGHT" >
+                    <children>
+                        <Text id="whiteWriting" text="الاســــــــــــــم:  " />
+                        <TextField fx:id="newClientNameTxtFld" />
+                    </children>
+                </HBox>
+                <HBox nodeOrientation="RIGHT_TO_LEFT" alignment="CENTER_RIGHT" >
+                    <children>
+                        <Text id="whiteWriting" text="رقم تعريف الشخصيه:  " />
+                        <TextField fx:id="newClientPersonalIdTxtFld" />
+                    </children>
+                </HBox>
+            </HBox>
+            <HBox fx:id="clientInfoBottomLayerHB" nodeOrientation="RIGHT_TO_LEFT" >
+                <HBox nodeOrientation="RIGHT_TO_LEFT" alignment="CENTER_RIGHT" >
+                    <children>
+                        <Text id="whiteWriting" text="رقـــم الهــاتــف:  " />
+                        <TextField fx:id="newClientMobileNumberTxtFld" />
+                    </children>
+                </HBox>
+                <HBox nodeOrientation="RIGHT_TO_LEFT" alignment="CENTER_RIGHT" >
+                    <children>
+                        <Text id="whiteWriting" text="المـــهنـــــــــه:          " />
+                        <TextField fx:id="newClientCareerTxtFld" />
+                    </children>
+                </HBox>
+            </HBox>
+            <HBox  fx:id="transferLayerHB" alignment="CENTER" nodeOrientation="RIGHT_TO_LEFT" prefWidth="${clientUnitsAnchPn.width * 0.6}" >
+                <RadioButton fx:id="newClientRB" id="whiteWriting" text="عميل جديد" />
+                <Button fx:id="transformationBtn" id="BtnStyle" onMouseClicked="#transferUnit" prefHeight="${clientUnitsAnchPn.height * 0.01}" prefWidth="${clientUnitsAnchPn.width * 0.07}" >
+                    <graphic>
+                        <Label text="تنازل" /> 
+                    </graphic>
+                </Button>
+            </HBox>
+        </children>
+    </AnchorPane>
+</AnchorPane>

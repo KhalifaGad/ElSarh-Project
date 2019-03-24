@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="dailyPaymentsAnchPn" id="AnchorPane" prefHeight="${dailyPaymentsAnchPn.parent.height}" prefWidth="${dailyPaymentsAnchPn.parent.width}" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.khalifa.elsarh.controllers.DailyPaymentsController">
+    <stylesheets>
+        <URL value="@/styles/dailypayments.css"/>
+    </stylesheets>
+    <children>
+        <ScrollPane id="vScPane" AnchorPane.rightAnchor="0" prefHeight="${dailyPaymentsAnchPn.height * 0.85}" prefWidth="${dailyPaymentsAnchPn.width}">
+            <content>
+                <AnchorPane fx:id="clientsAncPn" AnchorPane.rightAnchor="0" prefHeight="${dailyPaymentsAnchPn.height * 0.85}" prefWidth="${dailyPaymentsAnchPn.width}">
+                    <children>
+                        <HBox nodeOrientation="RIGHT_TO_LEFT" id="headHbox" style="-fx-background-color:#ffcc33;" alignment="CENTER" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="20.0">
+                            <Text id="headTxt" text="      واجب السداد اليوم  " />
+                        </HBox>
+
+                    </children>
+                </AnchorPane>
+            </content>
+        </ScrollPane>
+    </children>    
+</AnchorPane>

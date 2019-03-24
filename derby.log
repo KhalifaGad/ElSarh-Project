@@ -1,0 +1,16 @@
+----------------------------------------------------------------
+Sun Jan 27 00:06:24 EET 2019:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.1.0 - (1808820): instance a816c00e-0168-8c33-126e-00000678fe38 
+on database directory /home/khalifa/NetBeansProjects/ElSarh/elsarhEmbDB with class loader sun.misc.Launcher$AppClassLoader@70dea4e 
+Loaded from file:/home/khalifa/NetBeansProjects/ElSarh/target/ElSarh-1.1-SNAPSHOT.jar
+java.vendor=Oracle Corporation
+java.runtime.version=1.8.0_201-b09
+user.dir=/home/khalifa/NetBeansProjects/ElSarh
+os.name=Linux
+os.arch=amd64
+os.version=4.15.0-43-generic
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''
+----------------------------------------------------------------
+Sun Jan 27 13:16:47 EET 2019:
+Shutting down instance a816c00e-0168-8c33-126e-00000678fe38 on database directory /home/khalifa/NetBeansProjects/ElSarh/elsarhEmbDB with class loader sun.misc.Launcher$AppClassLoader@70dea4e 

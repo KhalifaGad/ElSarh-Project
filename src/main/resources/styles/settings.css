@@ -1,0 +1,30 @@
+/*
+ * Empty Stylesheet file.
+ */
+@font-face{
+    src:url("/fonts/Cocon.ttf");
+}
+.mainFxmlClass {
+    -fx-border-style: hidden;
+}
+#bkgroundLayer{
+    -fx-background-color:white;
+    -fx-effect: dropshadow(three-pass-box, #cccccc, 4, 0, 0, 4);
+    -fx-border-style: hidden;
+    -fx-background-radius: 2em;
+}
+#headHBox{
+    -fx-border-style: hidden hidden solid;
+    -fx-border-color: #ffcc33;
+    -fx-border-width: 4px;
+    -fx-padding: 3px;
+}
+#headTxt{
+    -fx-font-family: "Cocon? Next Arabic Light";
+    -fx-font-size: 2em;
+    -fx-font-wight: bold;
+}
+#savingbttn{
+    -fx-background-color:#ffcc33;
+    -fx-background-radius: 5em;
+}
